@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.crboy.net/"/>
-  <updated>2016-03-20T10:40:50.000Z</updated>
+  <updated>2016-03-19T21:36:57.000Z</updated>
   <id>http://blog.crboy.net/</id>
   
   <author>
@@ -14,32 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>搬家</title>
-    <link href="http://blog.crboy.net/2016/03/20/move-to-hexo/"/>
-    <id>http://blog.crboy.net/2016/03/20/move-to-hexo/</id>
-    <published>2016-03-19T21:47:04.000Z</published>
-    <updated>2016-03-20T10:40:50.000Z</updated>
-    
-    <content type="html">&lt;p&gt;今天突然覺得，應該要（再）開始好好寫 blog，想了一下，覺得實在受不了 blogger 的鳥氣。&lt;br&gt;以前評估過 Octopress 跟 Hexo，當時覺得不能用手機發文，或是用別台電腦發文，實在滿討厭的，就暫不考慮使用。&lt;br&gt;不過想到我現在的狀況….連發文都懶XD&lt;br&gt;轉念一想，其實用手機的時候，如果想寫文字，可以先筆記下來（比方說 Evernote），等到拿到電腦再好好整理文章啊！&lt;br&gt;這樣也可以提高我發文的品質，而且可以好好整理文字內容。感覺這樣滿不錯的。&lt;/p&gt;
-&lt;p&gt;於是我重新找了一下，發現這類工具好像還是以 Octopress 跟 Hexo 為大宗，而且 Hexo 據說比較易用，還是台灣人做的，當然要支持一下。（而且聽說 page render 的效能差很多….XD）&lt;br&gt;那麼，就開始學 Hexo 該怎麼用了！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天突然覺得，應該要（再）開始好好寫 blog，想了一下，覺得實在受不了 blogger 的鳥氣。&lt;br&gt;以前評估過 Octopress 跟 Hexo，當時覺得不能用手機發文，或是用別台電腦發文，實在滿討厭的，就暫不考慮使用。&lt;br&gt;不過想到我現在的狀況….連發文都懶XD&lt;
-    
-    </summary>
-    
-    
-      <category term="a" scheme="http://blog.crboy.net/tags/a/"/>
-    
-      <category term="b" scheme="http://blog.crboy.net/tags/b/"/>
-    
-      <category term="c" scheme="http://blog.crboy.net/tags/c/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
