@@ -1,0 +1,3 @@
+[submodule "themes/crboy-icarus"]
+	path = themes/crboy-icarus
+	url = https://github.com/CrBoy/hexo-theme-icarus

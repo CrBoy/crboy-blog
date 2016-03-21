@@ -7,9 +7,7 @@ title: CrBoy's Blog
 subtitle:
 description:
 author: CrBoy
-language:
-- zh-TW
-- en
+language: zh-TW
 timezone:
 
 # URL
@@ -65,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: crboy-icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
