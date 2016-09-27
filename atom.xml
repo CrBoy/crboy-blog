@@ -17,8 +17,8 @@
   
   <entry>
     <title>好用的 mockup、wireframe 工具：Balsamiq Mockups</title>
-    <link href="http://blog.crboy.net/2013/09/balsamiq-mockups.html"/>
-    <id>http://blog.crboy.net/2013/09/balsamiq-mockups.html</id>
+    <link href="http://blog.crboy.net/2013/09/balsamiq-mockups/"/>
+    <id>http://blog.crboy.net/2013/09/balsamiq-mockups/</id>
     <published>2013-09-26T18:21:00.000Z</published>
     <updated>2016-05-03T23:42:45.000Z</updated>
     
@@ -76,8 +76,8 @@
   
   <entry>
     <title>Git on Windows 安裝筆記</title>
-    <link href="http://blog.crboy.net/2012/05/git-on-windows.html"/>
-    <id>http://blog.crboy.net/2012/05/git-on-windows.html</id>
+    <link href="http://blog.crboy.net/2012/05/git-on-windows/"/>
+    <id>http://blog.crboy.net/2012/05/git-on-windows/</id>
     <published>2012-05-24T16:25:00.000Z</published>
     <updated>2016-05-03T23:26:13.000Z</updated>
     
@@ -236,8 +236,8 @@
   
   <entry>
     <title>「cannot open shared object file」的解決方案</title>
-    <link href="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object.html"/>
-    <id>http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object.html</id>
+    <link href="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/"/>
+    <id>http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/</id>
     <published>2012-05-23T07:20:00.000Z</published>
     <updated>2016-05-07T17:28:36.000Z</updated>
     
@@ -293,8 +293,8 @@ $ find / -name libiconv.so.2 2&amp;gt;/dev/null
   
   <entry>
     <title>SSH 安全性設定筆記</title>
-    <link href="http://blog.crboy.net/2012/05/ssh-security-note.html"/>
-    <id>http://blog.crboy.net/2012/05/ssh-security-note.html</id>
+    <link href="http://blog.crboy.net/2012/05/ssh-security-note/"/>
+    <id>http://blog.crboy.net/2012/05/ssh-security-note/</id>
     <published>2012-05-18T06:16:00.000Z</published>
     <updated>2016-05-07T17:27:30.000Z</updated>
     
@@ -425,8 +425,8 @@ auth required pam_listfile.so item=user sense=allow file=/etc/ssh_users onerr=fa
   
   <entry>
     <title>透過 ssh 遠端存取 git repository</title>
-    <link href="http://blog.crboy.net/2012/03/remote-git-access-via-ssh.html"/>
-    <id>http://blog.crboy.net/2012/03/remote-git-access-via-ssh.html</id>
+    <link href="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/"/>
+    <id>http://blog.crboy.net/2012/03/remote-git-access-via-ssh/</id>
     <published>2012-03-22T19:31:00.000Z</published>
     <updated>2016-05-07T17:51:40.000Z</updated>
     
