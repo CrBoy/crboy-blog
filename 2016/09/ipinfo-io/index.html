@@ -3,27 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>「cannot open shared object file」的解決方案 | CrBoy&#39;s Blog</title>
+    <title>發現一個滿方便的 ip 資訊查詢：ipinfo.io | CrBoy&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="有時候執行一些指令，會碰到下面這樣的訊息：
-error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
-在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
-首先必須找到系">
+    <meta name="description" content="以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。
+剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 curl 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。
+1234567891011121314151617181920$ curl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「cannot open shared object file」的解決方案">
-<meta property="og:url" content="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/index.html">
+<meta property="og:title" content="發現一個滿方便的 ip 資訊查詢：ipinfo.io">
+<meta property="og:url" content="http://blog.crboy.net/2016/09/ipinfo-io/index.html">
 <meta property="og:site_name" content="CrBoy's Blog">
-<meta property="og:description" content="有時候執行一些指令，會碰到下面這樣的訊息：
-error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
-在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
-首先必須找到系">
-<meta property="og:updated_time" content="2016-05-07T17:28:36.000Z">
+<meta property="og:description" content="以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。
+剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 curl 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。
+1234567891011121314151617181920$ curl">
+<meta property="og:updated_time" content="2016-09-27T10:45:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「cannot open shared object file」的解決方案">
-<meta name="twitter:description" content="有時候執行一些指令，會碰到下面這樣的訊息：
-error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
-在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
-首先必須找到系">
+<meta name="twitter:title" content="發現一個滿方便的 ip 資訊查詢：ipinfo.io">
+<meta name="twitter:description" content="以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。
+剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 curl 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。
+1234567891011121314151617181920$ curl">
     
 
     
@@ -152,7 +149,7 @@ error while loading shared libraries: libiconv.so.2: cannot open shared object f
 </aside>
 
             
-            <section id="main"><article id="post-solution-for-cannot-open-shared-object" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-ipinfo-io" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -161,7 +158,7 @@ error while loading shared libraries: libiconv.so.2: cannot open shared object f
                 
     
         <h1 class="article-title" itemprop="name">
-            「cannot open shared object file」的解決方案
+            發現一個滿方便的 ip 資訊查詢：ipinfo.io
         </h1>
     
 
@@ -169,50 +166,34 @@ error while loading shared libraries: libiconv.so.2: cannot open shared object f
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2012/05/solution-for-cannot-open-shared-object/">
-            <time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time>
+        <a href="/2016/09/ipinfo-io/">
+            <time datetime="2016-09-27T10:45:49.000Z" itemprop="datePublished">2016-09-27</time>
         </a>
     </div>
 
 
                     
                     
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a>, <a class="tag-link" href="/tags/教學/">教學</a>
-    </div>
-
                 </div>
             </header>
         
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>有時候執行一些指令，會碰到下面這樣的訊息：</p>
-<pre><code>error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
-</code></pre><p>在這個例子中，我們的程式找不到 <code>libiconv.so.2</code> 這個 dynamic library。那麼應該怎麼解決呢？</p>
-<p>首先必須找到系統中的 <code>libiconv.so.2</code>，下面四條指令選一條作就好：</p>
-<pre><code>$ locate libiconv.so.2
-$ whereis libiconv.so.2
-$ find /usr /lib -name libiconv.so.2
-$ find / -name libiconv.so.2 2&gt;/dev/null
-</code></pre><p>這時候就可以找出函式庫位置，例如：<code>/usr/local/lib/libiconv.so</code></p>
-<a id="more"></a>
-<p>萬一沒有找出來的話，就要自行安裝了。<a href="http://www.techsww.com/tutorials/libraries/libiconv/installation/installing_libiconv_on_ubuntu_linux.php" target="_blank" rel="external">這篇文章</a>有教該如何安裝 libiconv，如果是其他函式庫的話可以自行變通。</p>
-<p>找到位置之後，應該怎麼做呢？如果我們有 root 權限的話，可以把函式庫所在路徑寫入 <code>/etc/ld.so.conf</code>，再重新產生 ld 的 cache 即可，如下：</p>
-<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf # 注意! 要用 &gt;&gt; 而非 &gt;！
-# ldconfig
-</code></pre><p>在某些系統中，<code>/etc/ld.so.conf</code> 可能會預設加上 <code>include /etc/ld.so.conf.d/*.conf</code> 這樣的敘述，那們我們也可以把路徑放在那個目錄下：</p>
-<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf.d/usr_local_lib.conf
-# ldconfig
-</code></pre><p>這樣一來就可以讓程式順利搜尋到需要的 library 囉！</p>
-<p><strong>BUT!! 玩 Linux 最重要的就是這個 BUT!!</strong></p>
-<p>如果我們沒有 root 權限的話該怎麼辦呢？這時候只好很可憐的自己搞定了…如果需要自行編譯 library 的話，可以照著類似的步驟做，但是 prefix (也就是安裝位置) 要設定在自己的家目錄下，例如：</p>
-<pre><code>$ ./configure --prefix=$HOME/libiconv
-</code></pre><p>但這邊假設系統中已經有 <code>/usr/local/lib/libiconv.so.2</code> 這個檔案，進行以下步驟：</p>
-<pre><code>$ echo &quot;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&quot; &gt;&gt; ~/.bashrc
-</code></pre><p>原理很簡單，就是透過設定 <code>LD_LIBRARY_PATH</code> 來讓程式找得到需要的 library 檔案。修改後需要重新登入才會生效喔！</p>
-<p>但是…基本上還是建議不要用後面這個方法啦，找你的系統管理員協助設定 <code>/etc/ld.so.conf</code> 才是好主意。這裡有篇文章：<a href="http://xahlee.org/UnixResource_dir/_/ldpath.html" target="_blank" rel="external">Why LD_LIBRARY_PATH is bad</a>，專門在討論為什麼不要隨意使用 <code>LD_LIBRARY_PATH</code>。</p>
+            <p>以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。</p>
+<p>剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 <code>curl</code> 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:33:36 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 219</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;119.14.25.111&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;host-111.25-14-119.dynamic.totalbb.net.tw&quot;,</div><div class="line">  &quot;city&quot;: &quot;Taipei&quot;,</div><div class="line">  &quot;region&quot;: &quot;&quot;,</div><div class="line">  &quot;country&quot;: &quot;TW&quot;,</div><div class="line">  &quot;loc&quot;: &quot;25.0392,121.5250&quot;,</div><div class="line">  &quot;org&quot;: &quot;AS9416 Hoshin Multimedia Center Inc.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也可以查詢特定 ip 的資訊：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/8.8.8.8</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:36:40 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 160</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;8.8.8.8&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;No Hostname&quot;,</div><div class="line">  &quot;city&quot;: &quot;&quot;,</div><div class="line">  &quot;region&quot;: &quot;&quot;,</div><div class="line">  &quot;country&quot;: &quot;US&quot;,</div><div class="line">  &quot;loc&quot;: &quot;37.7510,-97.8220&quot;,</div><div class="line">  &quot;org&quot;: &quot;AS15169 Google Inc.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>甚至 fetch 特定欄位資料：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/8.8.8.8/country</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:37:18 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">Content-Length: 3</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">US</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/country</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:37:22 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">Content-Length: 3</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">TW</div></pre></td></tr></table></figure>
+<p>還有一些好玩的….像是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/127.0.0.1</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:39:36 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 37</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;127.0.0.1&quot;,</div><div class="line">  &quot;bogon&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/255.255.255.255</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:40:46 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 72</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;255.255.255.255&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;No Hostname&quot;,</div><div class="line">  &quot;bogon&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>bogon: 1</code> 根據<a href="https://en.wikipedia.org/wiki/Bogon_filtering" target="_blank" rel="external">維基百科上 Bogon filtering</a> 的描述，看來是有擋掉不應該被查詢的 ip。不過….</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/192.168.1.1</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:39:56 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 184</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;192.168.1.1&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;ip-192-168-1-1.ap-southeast-1.compute.internal&quot;,</div><div class="line">  &quot;city&quot;: &quot;Momoyama-cho&quot;,</div><div class="line">  &quot;region&quot;: &quot;Kyoto&quot;,</div><div class="line">  &quot;country&quot;: &quot;JP&quot;,</div><div class="line">  &quot;loc&quot;: &quot;34.9500,135.7830&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看起來還是有些特別的 ip 可以查XD 原來這台主機放在 AWS EC2 的日本機房嗎……（思）</p>
 
         
         </div>
@@ -223,7 +204,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citld0wqk0006mz7q32qcf06j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citld0wqd0003mz7quc3mh7hy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -298,19 +279,10 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         
 <nav id="article-nav">
     
-        <a href="/2012/05/git-on-windows/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Git on Windows 安裝筆記
-                
-            </div>
-        </a>
     
-    
-        <a href="/2012/05/ssh-security-note/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/03/hexo-notes-apply-icarus/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">SSH 安全性設定筆記</div>
+            <div class="article-nav-title">Hexo 學習筆記 - 套用 Icarus 佈景</div>
         </a>
     
 </nav>

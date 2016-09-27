@@ -3,14 +3,33 @@
 <head>
     <meta charset="utf-8">
     
-    <title>歸檔: 2012/5 | CrBoy&#39;s Blog</title>
+    <title>Hexo 學習筆記 - 套用 Icarus 佈景 | CrBoy&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="CrBoy's Blog">
-<meta property="og:url" content="http://blog.crboy.net/archives/2012/05/index.html">
+    <meta name="description" content="挑了一下主題，暫時就用 Icarus 這個樣式吧XD
+不過在 config 的時候遇到問題，怎麼改都沒效。後來找到這篇文章，裡面寫到這段話：
+
+hexo-config 方法会去 theme 主题下的 _config.yml 中查找参数中的配置项
+
+原來是會讀取 theme 底下的 _config.yml啊！難怪我改 Hexo 的 _config.yml（根目錄那一個）沒辦法起作用。不過奇怪的是，像">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 學習筆記 - 套用 Icarus 佈景">
+<meta property="og:url" content="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/index.html">
 <meta property="og:site_name" content="CrBoy's Blog">
+<meta property="og:description" content="挑了一下主題，暫時就用 Icarus 這個樣式吧XD
+不過在 config 的時候遇到問題，怎麼改都沒效。後來找到這篇文章，裡面寫到這段話：
+
+hexo-config 方法会去 theme 主题下的 _config.yml 中查找参数中的配置项
+
+原來是會讀取 theme 底下的 _config.yml啊！難怪我改 Hexo 的 _config.yml（根目錄那一個）沒辦法起作用。不過奇怪的是，像">
+<meta property="og:updated_time" content="2016-09-27T10:06:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CrBoy's Blog">
+<meta name="twitter:title" content="Hexo 學習筆記 - 套用 Icarus 佈景">
+<meta name="twitter:description" content="挑了一下主題，暫時就用 Icarus 這個樣式吧XD
+不過在 config 的時候遇到問題，怎麼改都沒效。後來找到這篇文章，裡面寫到這段話：
+
+hexo-config 方法会去 theme 主题下的 _config.yml 中查找参数中的配置项
+
+原來是會讀取 theme 底下的 _config.yml啊！難怪我改 Hexo 的 _config.yml（根目錄那一個）沒辦法起作用。不過奇怪的是，像">
     
 
     
@@ -139,20 +158,16 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2012</h1>
-            </div>
+            <section id="main"><article id="post-hexo-notes-apply-icarus" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/git-on-windows/">Git on Windows 安裝筆記</a>
+        <h1 class="article-title" itemprop="name">
+            Hexo 學習筆記 - 套用 Icarus 佈景
         </h1>
     
 
@@ -160,8 +175,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2012/05/git-on-windows/">
-            <time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time>
+        <a href="/2016/03/hexo-notes-apply-icarus/">
+            <time datetime="2016-03-21T10:04:54.000Z" itemprop="datePublished">2016-03-21</time>
         </a>
     </div>
 
@@ -170,76 +185,133 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/教學/">教學</a>, <a class="tag-link" href="/tags/筆記/">筆記</a>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>
     </div>
 
                 </div>
-            </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>挑了一下主題，暫時就用 Icarus 這個樣式吧XD</p>
+<p>不過在 config 的時候遇到問題，怎麼改都沒效。後來找到<a href="http://wuchong.me/blog/2015/03/12/support-jacman-to-Hexo-3/" target="_blank" rel="external">這篇文章</a>，裡面寫到這段話：</p>
+<blockquote>
+<p>hexo-config 方法会去 theme 主题下的 _config.yml 中查找参数中的配置项</p>
+</blockquote>
+<p>原來是會讀取 <strong>theme 底下的 <code>_config.yml</code></strong>啊！難怪我改 Hexo 的 <code>_config.yml</code>（根目錄那一個）沒辦法起作用。不過奇怪的是，像是 <code>customize.profile.author</code> 之類的設定，在 Hexo 的 config 中修改，會起作用。不曉得 Hexo 在這邊是怎麼處理的…</p>
+
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/solution-for-cannot-open-shared-object/">「cannot open shared object file」的解決方案</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/solution-for-cannot-open-shared-object/">
-            <time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a>, <a class="tag-link" href="/tags/教學/">教學</a>
-    </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/ssh-security-note/">SSH 安全性設定筆記</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/ssh-security-note/">
-            <time datetime="2012-05-18T06:16:00.000Z" itemprop="datePublished">2012-05-18</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/note/">note</a>, <a class="tag-link" href="/tags/security/">security</a>, <a class="tag-link" href="/tags/ssh/">ssh</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citld0wqu0009mz7q2b8dwloy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/09/ipinfo-io/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    發現一個滿方便的 ip 資訊查詢：ipinfo.io
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/03/move-to-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">搬家</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">

@@ -112,11 +112,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                9
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                11
+                12
                 <span>標籤</span>
             </div>
         </div>
@@ -140,6 +140,384 @@
 
             
             <section id="main">
+    <article id="post-ipinfo-io" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/ipinfo-io/">發現一個滿方便的 ip 資訊查詢：ipinfo.io</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/ipinfo-io/">
+            <time datetime="2016-09-27T10:45:49.000Z" itemprop="datePublished">2016-09-27</time>
+        </a>
+    </div>
+
+
+                    
+                    
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。</p>
+<p>剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 <code>curl</code> 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:33:36 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 219</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;119.14.25.111&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;host-111.25-14-119.dynamic.totalbb.net.tw&quot;,</div><div class="line">  &quot;city&quot;: &quot;Taipei&quot;,</div><div class="line">  &quot;region&quot;: &quot;&quot;,</div><div class="line">  &quot;country&quot;: &quot;TW&quot;,</div><div class="line">  &quot;loc&quot;: &quot;25.0392,121.5250&quot;,</div><div class="line">  &quot;org&quot;: &quot;AS9416 Hoshin Multimedia Center Inc.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也可以查詢特定 ip 的資訊：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/8.8.8.8</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:36:40 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 160</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;8.8.8.8&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;No Hostname&quot;,</div><div class="line">  &quot;city&quot;: &quot;&quot;,</div><div class="line">  &quot;region&quot;: &quot;&quot;,</div><div class="line">  &quot;country&quot;: &quot;US&quot;,</div><div class="line">  &quot;loc&quot;: &quot;37.7510,-97.8220&quot;,</div><div class="line">  &quot;org&quot;: &quot;AS15169 Google Inc.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>甚至 fetch 特定欄位資料：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/8.8.8.8/country</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:37:18 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">Content-Length: 3</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">US</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/country</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: text/html; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:37:22 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">Content-Length: 3</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">TW</div></pre></td></tr></table></figure>
+<p>還有一些好玩的….像是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/127.0.0.1</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:39:36 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 37</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;127.0.0.1&quot;,</div><div class="line">  &quot;bogon&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/255.255.255.255</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:40:46 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 72</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;255.255.255.255&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;No Hostname&quot;,</div><div class="line">  &quot;bogon&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>bogon: 1</code> 根據<a href="https://en.wikipedia.org/wiki/Bogon_filtering" target="_blank" rel="external">維基百科上 Bogon filtering</a> 的描述，看來是有擋掉不應該被查詢的 ip。不過….</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ curl -D- ipinfo.io/192.168.1.1</div><div class="line">HTTP/1.1 200 OK</div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Content-Type: application/json; charset=utf-8</div><div class="line">Date: Tue, 27 Sep 2016 10:39:56 GMT</div><div class="line">Server: nginx/1.8.1</div><div class="line">Set-Cookie: first_referrer=; Path=/</div><div class="line">X-Content-Type-Options: nosniff</div><div class="line">Content-Length: 184</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;ip&quot;: &quot;192.168.1.1&quot;,</div><div class="line">  &quot;hostname&quot;: &quot;ip-192-168-1-1.ap-southeast-1.compute.internal&quot;,</div><div class="line">  &quot;city&quot;: &quot;Momoyama-cho&quot;,</div><div class="line">  &quot;region&quot;: &quot;Kyoto&quot;,</div><div class="line">  &quot;country&quot;: &quot;JP&quot;,</div><div class="line">  &quot;loc&quot;: &quot;34.9500,135.7830&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看起來還是有些特別的 ip 可以查XD 原來這台主機放在 AWS EC2 的日本機房嗎……（思）</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citld0wqd0003mz7quc3mh7hy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-hexo-notes-apply-icarus" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/03/hexo-notes-apply-icarus/">Hexo 學習筆記 - 套用 Icarus 佈景</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/hexo-notes-apply-icarus/">
+            <time datetime="2016-03-21T10:04:54.000Z" itemprop="datePublished">2016-03-21</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>挑了一下主題，暫時就用 Icarus 這個樣式吧XD</p>
+<p>不過在 config 的時候遇到問題，怎麼改都沒效。後來找到<a href="http://wuchong.me/blog/2015/03/12/support-jacman-to-Hexo-3/" target="_blank" rel="external">這篇文章</a>，裡面寫到這段話：</p>
+<blockquote>
+<p>hexo-config 方法会去 theme 主题下的 _config.yml 中查找参数中的配置项</p>
+</blockquote>
+<p>原來是會讀取 <strong>theme 底下的 <code>_config.yml</code></strong>啊！難怪我改 Hexo 的 <code>_config.yml</code>（根目錄那一個）沒辦法起作用。不過奇怪的是，像是 <code>customize.profile.author</code> 之類的設定，在 Hexo 的 config 中修改，會起作用。不曉得 Hexo 在這邊是怎麼處理的…</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citld0wqu0009mz7q2b8dwloy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-move-to-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/03/move-to-hexo/">搬家</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/move-to-hexo/">
+            <time datetime="2016-03-19T21:47:04.000Z" itemprop="datePublished">2016-03-20</time>
+        </a>
+    </div>
+
+
+                    
+                    
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>今天突然覺得，應該要（再）開始好好寫 blog，想了一下，覺得實在受不了 blogger 的鳥氣。<br>以前評估過 Octopress 跟 Hexo，當時覺得不能用手機發文，或是用別台電腦發文，實在滿討厭的，就暫不考慮使用。<br>不過想到我現在的狀況….連發文都懶XD<br>轉念一想，其實用手機的時候，如果想寫文字，可以先筆記下來（比方說 Evernote），等到拿到電腦再好好整理文章啊！<br>這樣也可以提高我發文的品質，而且可以好好整理文字內容。感覺這樣滿不錯的。</p>
+<p>於是我重新找了一下，發現這類工具好像還是以 Octopress 跟 Hexo 為大宗，而且 Hexo 據說比較易用，還是台灣人做的，當然要支持一下。（而且聽說 page render 的效能差很多….XD）<br>那麼，就開始學 Hexo 該怎麼用了！</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/03/move-to-hexo/" data-id="citld0wqe0004mz7qiixhf122" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-balsamiq-mockups" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -189,7 +567,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citlamq4c00008d7q0xc1lya7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citld0wqa0002mz7q3lcuq089" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -321,7 +699,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citlamq4i00018d7q6vz4uhjs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citld0wq60001mz7qnwodopnw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -453,7 +831,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citlamq4l00038d7q70i8oq9b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citld0wqk0006mz7q32qcf06j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -592,7 +970,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citlamq4n00048d7q82jw6xtm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citld0wqn0007mz7qtdpsytkq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -718,7 +1096,141 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citlamq4j00028d7qzlh90th8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citld0wqh0005mz7qbbi95k6s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-top-10-linux-one-liners" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2010/04/top-10-linux-one-liners/">10 個最酷的 Linux 單行指令</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2010/04/top-10-linux-one-liners/">
+            <time datetime="2010-04-05T18:10:00.000Z" itemprop="datePublished">2010-04-06</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>本文內容修改自 <a href="http://linuxtoy.org/archives/top-10-one-liners.html" target="_blank" rel="external">http://linuxtoy.org/archives/top-10-one-liners.html</a></p>
+<p>下面是來自 <a href="http://commandlinefu.com/" target="_blank" rel="external">Commandlinefu</a> 網站由用戶投票表決出的 10 個最酷的 Linux 單行指令。</p>
+<p>1. <code>sudo !!</code><br>以 root 帳戶執行上一道指令。</p>
+<p>2. <code>python -m SimpleHTTPServer</code><br>利用 Python 建立一個簡單的 Web 伺服器，可透過 <code>http://$HOSTNAME:8000</code> 瀏覽。</p>
+<p>3. <code>:w !sudo tee %</code><br>在 vim 中無需權限儲存編輯的文件。</p>
+<p>4. <code>cd -</code><br>更改到上一次瀏覽的目錄。</p>
+<p>5. <code>^foo^bar</code><br>將上一道指令中的 foo 替換為 bar，並執行。</p>
+<p>6. <code>cp filename{,.bak}</code><br>快速備份或複製文件。</p>
+<p>7. <code>mtr google.com</code><br><code>traceroute</code> + <code>ping</code>。</p>
+<p>8. <code>!whatever:p</code><br>搜尋命令歷史，但不執行。</p>
+<p>9. <code>ssh-copy-id user@host</code><br>將 ssh keys 複製到 <code>user@host</code> 以啟用無密碼 SSH 登錄。</p>
+<p>10. <code>ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /tmp/out.mpg</code><br>把 Linux 桌面錄製為影片。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2010/04/top-10-linux-one-liners/" data-id="citld0wqq0008mz7qtq21sh7v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -806,6 +1318,60 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/09/ipinfo-io/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/ipinfo-io/" class="title">發現一個滿方便的 ip 資訊查詢：ipinfo.io</a></p>
+                            <p class="item-date"><time datetime="2016-09-27T10:45:49.000Z" itemprop="datePublished">2016-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/03/hexo-notes-apply-icarus/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/03/hexo-notes-apply-icarus/" class="title">Hexo 學習筆記 - 套用 Icarus 佈景</a></p>
+                            <p class="item-date"><time datetime="2016-03-21T10:04:54.000Z" itemprop="datePublished">2016-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/03/move-to-hexo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/03/move-to-hexo/" class="title">搬家</a></p>
+                            <p class="item-date"><time datetime="2016-03-19T21:47:04.000Z" itemprop="datePublished">2016-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2013/09/balsamiq-mockups/" class="thumbnail">
     
     
@@ -839,60 +1405,6 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2012/05/solution-for-cannot-open-shared-object/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/solution-for-cannot-open-shared-object/" class="title">「cannot open shared object file」的解決方案</a></p>
-                            <p class="item-date"><time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2012/05/ssh-security-note/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/ssh-security-note/" class="title">SSH 安全性設定筆記</a></p>
-                            <p class="item-date"><time datetime="2012-05-18T06:16:00.000Z" itemprop="datePublished">2012-05-18</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2012/03/remote-git-access-via-ssh/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/03/remote-git-access-via-ssh/" class="title">透過 ssh 遠端存取 git repository</a></p>
-                            <p class="item-date"><time datetime="2012-03-22T19:31:00.000Z" itemprop="datePublished">2012-03-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -904,7 +1416,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">歸檔</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -913,7 +1425,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -922,7 +1434,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
         </div>
     </div>
 
