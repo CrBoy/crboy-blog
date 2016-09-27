@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.crboy.net/"/>
-  <updated>2016-09-27T10:45:17.000Z</updated>
+  <updated>2016-09-27T19:09:57.000Z</updated>
   <id>http://blog.crboy.net/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CloudFlare 的 Flexible SSL</title>
+    <link href="http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/"/>
+    <id>http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/</id>
+    <published>2016-09-27T19:09:57.000Z</published>
+    <updated>2016-09-27T19:09:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近認真的把 blog 放上 github pages，算是差不多初始化完成了。不過 https 在這年頭是個很重要的問題啊….因為我設定了 CNAME，所以目前的網址是 hexo.crboy.net，但是如果直接連到 <a href="https://hexo.crboy.net" target="_blank" rel="external">https://hexo.crboy.net</a> 的話，會拿到一張 github.com 自己的 ssl 憑證，這張憑證簽給了許多 domain，其中包含 *.github.io，如下圖：</p>
+<img src="/2016/09/cloudflare-flexible-ssl/github-ssl-cert.png" alt="github-ssl-cert.png" title="">
+<p>雖然對於 github pages 本來給我的 crboy.githb.io 用起來是沒問題，但我自訂的 domain 可就沒辦法了。</p>
+<p>找了一下有沒有現成解決方案，找到這篇文章：<a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="external">Set Up SSL on Github Pages With Custom Domains for Free</a>，裡面教你透過 CloudFlare 的 Flexible SSL 來設定，後半段則是教你怎麼強制使用 SSL。但我只想要單純支援 SSL，不反對 user 使用 http 連線，所以後半段就不理他了。進一步找「cloudflare flexible ssl」找到這篇文章：<a href="https://sofree.cc/cloudflare-free-ssl/" target="_blank" rel="external">[免費SSL]Cloudflare 免費憑證讓網站綁上SSL加密連線(https)</a>，得知原理其實很簡單：讓流量通過 cloudflare（也就是 enable 他的 cdn 功能），cloudflare 會幫你對外提供可用的 ssl 憑證。</p>
+<p>設定方式：</p>
+<ol>
+<li>把自己的 domain 的 DNS 服務放在 cloudflare 上</li>
+<li>啟用該 domain name 的 CDN 服務</li>
+<li>到 Page Rules 新增一個 rule：URL match 設定為 <code>DOMANE_NAME/*</code>（例如 <code>hexo.crboy.net/*</code>），setting 新增 SSL 並指定為 flexible</li>
+<li>Save and Deploy 之後就好了，剩下的就是時間問題，我自己設定的時候是馬上就可以用了….（運氣好）</li>
+</ol>
+<p>不過倒是有個小小的問題…..這張憑證簽給好多 domain 啊…..而且除了我的 domain 以外也有別人的 domain，而且都是 wildcard….覺得有點擔心呢XD</p>
+<img src="/2016/09/cloudflare-flexible-ssl/cf-flexible-ssl-cert.png" alt="cf-flexible-ssl-cert.png" title="">
+<p>另一個方式（需要花點錢）是透過 AWS 的 CloudFront（也是 CDN 服務），他也有一樣模式的東西，AWS 會幫你簽一張憑證，不過這憑證是專門簽給那個 domain 的。實際上是在 AWS Certificate Manager (ACM) 中自己決定要簽給哪些 domain，AWS 會寄信給 domain 的管理者請求 approve。雖然這樣安心多了，不過要花錢….就算了吧XD</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近認真的把 blog 放上 github pages，算是差不多初始化完成了。不過 https 在這年頭是個很重要的問題啊….因為我設定了 CNAME，所以目前的網址是 hexo.crboy.net，但是如果直接連到 &lt;a href=&quot;https://hexo.crboy
+    
+    </summary>
+    
+    
+      <category term="CloudFlare" scheme="http://blog.crboy.net/tags/CloudFlare/"/>
+    
+      <category term="hexo" scheme="http://blog.crboy.net/tags/hexo/"/>
+    
+      <category term="SSL" scheme="http://blog.crboy.net/tags/SSL/"/>
+    
+  </entry>
   
   <entry>
     <title>發現一個滿方便的 ip 資訊查詢：ipinfo.io</title>
@@ -601,9 +639,9 @@ fatal: The remote end hung up unexpectedly
     
       <category term="教學" scheme="http://blog.crboy.net/tags/%E6%95%99%E5%AD%B8/"/>
     
-      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
-    
       <category term="Linux" scheme="http://blog.crboy.net/tags/Linux/"/>
+    
+      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   

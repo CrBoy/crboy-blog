@@ -112,11 +112,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                9
+                10
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                12
+                15
                 <span>標籤</span>
             </div>
         </div>
@@ -140,6 +140,142 @@
 
             
             <section id="main">
+    <article id="post-cloudflare-flexible-ssl" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/cloudflare-flexible-ssl/">CloudFlare 的 Flexible SSL</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/cloudflare-flexible-ssl/">
+            <time datetime="2016-09-27T19:09:57.000Z" itemprop="datePublished">2016-09-28</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CloudFlare/">CloudFlare</a>, <a class="tag-link" href="/tags/SSL/">SSL</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>最近認真的把 blog 放上 github pages，算是差不多初始化完成了。不過 https 在這年頭是個很重要的問題啊….因為我設定了 CNAME，所以目前的網址是 hexo.crboy.net，但是如果直接連到 <a href="https://hexo.crboy.net" target="_blank" rel="external">https://hexo.crboy.net</a> 的話，會拿到一張 github.com 自己的 ssl 憑證，這張憑證簽給了許多 domain，其中包含 *.github.io，如下圖：</p>
+<img src="/2016/09/cloudflare-flexible-ssl/github-ssl-cert.png" alt="github-ssl-cert.png" title="">
+<p>雖然對於 github pages 本來給我的 crboy.githb.io 用起來是沒問題，但我自訂的 domain 可就沒辦法了。</p>
+<p>找了一下有沒有現成解決方案，找到這篇文章：<a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="external">Set Up SSL on Github Pages With Custom Domains for Free</a>，裡面教你透過 CloudFlare 的 Flexible SSL 來設定，後半段則是教你怎麼強制使用 SSL。但我只想要單純支援 SSL，不反對 user 使用 http 連線，所以後半段就不理他了。進一步找「cloudflare flexible ssl」找到這篇文章：<a href="https://sofree.cc/cloudflare-free-ssl/" target="_blank" rel="external">[免費SSL]Cloudflare 免費憑證讓網站綁上SSL加密連線(https)</a>，得知原理其實很簡單：讓流量通過 cloudflare（也就是 enable 他的 cdn 功能），cloudflare 會幫你對外提供可用的 ssl 憑證。</p>
+<p>設定方式：</p>
+<ol>
+<li>把自己的 domain 的 DNS 服務放在 cloudflare 上</li>
+<li>啟用該 domain name 的 CDN 服務</li>
+<li>到 Page Rules 新增一個 rule：URL match 設定為 <code>DOMANE_NAME/*</code>（例如 <code>hexo.crboy.net/*</code>），setting 新增 SSL 並指定為 flexible</li>
+<li>Save and Deploy 之後就好了，剩下的就是時間問題，我自己設定的時候是馬上就可以用了….（運氣好）</li>
+</ol>
+<p>不過倒是有個小小的問題…..這張憑證簽給好多 domain 啊…..而且除了我的 domain 以外也有別人的 domain，而且都是 wildcard….覺得有點擔心呢XD</p>
+<img src="/2016/09/cloudflare-flexible-ssl/cf-flexible-ssl-cert.png" alt="cf-flexible-ssl-cert.png" title="">
+<p>另一個方式（需要花點錢）是透過 AWS 的 CloudFront（也是 CDN 服務），他也有一樣模式的東西，AWS 會幫你簽一張憑證，不過這憑證是專門簽給那個 domain 的。實際上是在 AWS Certificate Manager (ACM) 中自己決定要簽給哪些 domain，AWS 會寄信給 domain 的管理者請求 approve。雖然這樣安心多了，不過要花錢….就算了吧XD</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/" data-id="citluyfae0001947qn2gvjrm2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-ipinfo-io" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -195,7 +331,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citld0wqd0003mz7quc3mh7hy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citluyfam0004947q0mm1ifbn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -323,7 +459,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citld0wqu0009mz7q2b8dwloy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citluyfal0003947qisbo73m3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -442,7 +578,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/03/move-to-hexo/" data-id="citld0wqe0004mz7qiixhf122" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/03/move-to-hexo/" data-id="citluyfao0005947qy050dapj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -567,7 +703,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citld0wqa0002mz7q3lcuq089" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citluyfb6000a947qo0dsib7w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -699,7 +835,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citld0wq60001mz7qnwodopnw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citluyfaj0002947qy681u8y6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -831,7 +967,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citld0wqk0006mz7q32qcf06j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citluyfay0008947qtuzm8q7n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -970,7 +1106,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citld0wqn0007mz7qtdpsytkq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citluyfb50009947qjncuotvg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1096,7 +1232,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citld0wqh0005mz7qbbi95k6s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citluyfap0006947qzpq51hjd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1230,7 +1366,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2010/04/top-10-linux-one-liners/" data-id="citld0wqq0008mz7qtq21sh7v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2010/04/top-10-linux-one-liners/" data-id="citluyfat0007947q0fdlrybc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1318,6 +1454,24 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/09/cloudflare-flexible-ssl/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2016/09/cloudflare-flexible-ssl/github-ssl-cert.png)" alt="CloudFlare 的 Flexible SSL" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/cloudflare-flexible-ssl/" class="title">CloudFlare 的 Flexible SSL</a></p>
+                            <p class="item-date"><time datetime="2016-09-27T19:09:57.000Z" itemprop="datePublished">2016-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/09/ipinfo-io/" class="thumbnail">
     
     
@@ -1387,24 +1541,6 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2012/05/git-on-windows/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2012/05/git-on-windows/wingit/01.png)" alt="Git on Windows 安裝筆記" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/git-on-windows/" class="title">Git on Windows 安裝筆記</a></p>
-                            <p class="item-date"><time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1416,7 +1552,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">歸檔</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1425,7 +1561,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CloudFlare/">CloudFlare</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1434,7 +1570,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
+            <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
         </div>
     </div>
 
