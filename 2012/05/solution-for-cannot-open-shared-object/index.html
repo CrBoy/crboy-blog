@@ -3,14 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>歸檔 | CrBoy&#39;s Blog</title>
+    <title>「cannot open shared object file」的解決方案 | CrBoy&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="CrBoy's Blog">
-<meta property="og:url" content="http://blog.crboy.net/archives/index.html">
+    <meta name="description" content="有時候執行一些指令，會碰到下面這樣的訊息：
+error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
+首先必須找到系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「cannot open shared object file」的解決方案">
+<meta property="og:url" content="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/index.html">
 <meta property="og:site_name" content="CrBoy's Blog">
+<meta property="og:description" content="有時候執行一些指令，會碰到下面這樣的訊息：
+error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
+首先必須找到系">
+<meta property="og:updated_time" content="2016-05-07T17:28:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CrBoy's Blog">
+<meta name="twitter:title" content="「cannot open shared object file」的解決方案">
+<meta name="twitter:description" content="有時候執行一些指令，會碰到下面這樣的訊息：
+error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+在這個例子中，我們的程式找不到 libiconv.so.2 這個 dynamic library。那麼應該怎麼解決呢？
+首先必須找到系">
     
 
     
@@ -139,56 +152,16 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2013</h1>
-            </div>
+            <section id="main"><article id="post-solution-for-cannot-open-shared-object" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2013/09/balsamiq-mockups.html">好用的 mockup、wireframe 工具：Balsamiq Mockups</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/09/balsamiq-mockups.html">
-            <time datetime="2013-09-26T18:21:00.000Z" itemprop="datePublished">2013-09-27</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/網頁設計/">網頁設計</a>, <a class="tag-link" href="/tags/視覺設計/">視覺設計</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2012</h1>
-            </div>
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/git-on-windows.html">Git on Windows 安裝筆記</a>
+        <h1 class="article-title" itemprop="name">
+            「cannot open shared object file」的解決方案
         </h1>
     
 
@@ -196,38 +169,7 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2012/05/git-on-windows.html">
-            <time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/教學/">教學</a>, <a class="tag-link" href="/tags/筆記/">筆記</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/solution-for-cannot-open-shared-object.html">「cannot open shared object file」的解決方案</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/solution-for-cannot-open-shared-object.html">
+        <a href="/2012/05/solution-for-cannot-open-shared-object/">
             <time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time>
         </a>
     </div>
@@ -241,72 +183,148 @@
     </div>
 
                 </div>
-            </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>有時候執行一些指令，會碰到下面這樣的訊息：</p>
+<pre><code>error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+</code></pre><p>在這個例子中，我們的程式找不到 <code>libiconv.so.2</code> 這個 dynamic library。那麼應該怎麼解決呢？</p>
+<p>首先必須找到系統中的 <code>libiconv.so.2</code>，下面四條指令選一條作就好：</p>
+<pre><code>$ locate libiconv.so.2
+$ whereis libiconv.so.2
+$ find /usr /lib -name libiconv.so.2
+$ find / -name libiconv.so.2 2&gt;/dev/null
+</code></pre><p>這時候就可以找出函式庫位置，例如：<code>/usr/local/lib/libiconv.so</code></p>
+<a id="more"></a>
+<p>萬一沒有找出來的話，就要自行安裝了。<a href="http://www.techsww.com/tutorials/libraries/libiconv/installation/installing_libiconv_on_ubuntu_linux.php" target="_blank" rel="external">這篇文章</a>有教該如何安裝 libiconv，如果是其他函式庫的話可以自行變通。</p>
+<p>找到位置之後，應該怎麼做呢？如果我們有 root 權限的話，可以把函式庫所在路徑寫入 <code>/etc/ld.so.conf</code>，再重新產生 ld 的 cache 即可，如下：</p>
+<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf # 注意! 要用 &gt;&gt; 而非 &gt;！
+# ldconfig
+</code></pre><p>在某些系統中，<code>/etc/ld.so.conf</code> 可能會預設加上 <code>include /etc/ld.so.conf.d/*.conf</code> 這樣的敘述，那們我們也可以把路徑放在那個目錄下：</p>
+<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf.d/usr_local_lib.conf
+# ldconfig
+</code></pre><p>這樣一來就可以讓程式順利搜尋到需要的 library 囉！</p>
+<p><strong>BUT!! 玩 Linux 最重要的就是這個 BUT!!</strong></p>
+<p>如果我們沒有 root 權限的話該怎麼辦呢？這時候只好很可憐的自己搞定了…如果需要自行編譯 library 的話，可以照著類似的步驟做，但是 prefix (也就是安裝位置) 要設定在自己的家目錄下，例如：</p>
+<pre><code>$ ./configure --prefix=$HOME/libiconv
+</code></pre><p>但這邊假設系統中已經有 <code>/usr/local/lib/libiconv.so.2</code> 這個檔案，進行以下步驟：</p>
+<pre><code>$ echo &quot;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&quot; &gt;&gt; ~/.bashrc
+</code></pre><p>原理很簡單，就是透過設定 <code>LD_LIBRARY_PATH</code> 來讓程式找得到需要的 library 檔案。修改後需要重新登入才會生效喔！</p>
+<p>但是…基本上還是建議不要用後面這個方法啦，找你的系統管理員協助設定 <code>/etc/ld.so.conf</code> 才是好主意。這裡有篇文章：<a href="http://xahlee.org/UnixResource_dir/_/ldpath.html" target="_blank" rel="external">Why LD_LIBRARY_PATH is bad</a>，專門在討論為什麼不要隨意使用 <code>LD_LIBRARY_PATH</code>。</p>
+
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/ssh-security-note.html">SSH 安全性設定筆記</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/ssh-security-note.html">
-            <time datetime="2012-05-18T06:16:00.000Z" itemprop="datePublished">2012-05-18</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/note/">note</a>, <a class="tag-link" href="/tags/security/">security</a>, <a class="tag-link" href="/tags/ssh/">ssh</a>
-    </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/03/remote-git-access-via-ssh.html">透過 ssh 遠端存取 git repository</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/03/remote-git-access-via-ssh.html">
-            <time datetime="2012-03-22T19:31:00.000Z" itemprop="datePublished">2012-03-23</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/教學/">教學</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citki22v3000foy7q725kth1v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2012/05/git-on-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Git on Windows 安裝筆記
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2012/05/ssh-security-note/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SSH 安全性設定筆記</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -320,7 +338,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2013/09/balsamiq-mockups.html" class="thumbnail">
+                            <a href="/2013/09/balsamiq-mockups/" class="thumbnail">
     
     
         <span style="background-image:url(/2013/09/balsamiq-mockups/1.png)" alt="好用的 mockup、wireframe 工具：Balsamiq Mockups" class="thumbnail-image"></span>
@@ -330,7 +348,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2013/09/balsamiq-mockups.html" class="title">好用的 mockup、wireframe 工具：Balsamiq Mockups</a></p>
+                            <p class="item-title"><a href="/2013/09/balsamiq-mockups/" class="title">好用的 mockup、wireframe 工具：Balsamiq Mockups</a></p>
                             <p class="item-date"><time datetime="2013-09-26T18:21:00.000Z" itemprop="datePublished">2013-09-27</time></p>
                         </div>
                     </li>
@@ -338,7 +356,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2012/05/git-on-windows.html" class="thumbnail">
+                            <a href="/2012/05/git-on-windows/" class="thumbnail">
     
     
         <span style="background-image:url(/2012/05/git-on-windows/wingit/01.png)" alt="Git on Windows 安裝筆記" class="thumbnail-image"></span>
@@ -348,7 +366,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/git-on-windows.html" class="title">Git on Windows 安裝筆記</a></p>
+                            <p class="item-title"><a href="/2012/05/git-on-windows/" class="title">Git on Windows 安裝筆記</a></p>
                             <p class="item-date"><time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time></p>
                         </div>
                     </li>
@@ -356,7 +374,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2012/05/solution-for-cannot-open-shared-object.html" class="thumbnail">
+                            <a href="/2012/05/solution-for-cannot-open-shared-object/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -366,7 +384,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/solution-for-cannot-open-shared-object.html" class="title">「cannot open shared object file」的解決方案</a></p>
+                            <p class="item-title"><a href="/2012/05/solution-for-cannot-open-shared-object/" class="title">「cannot open shared object file」的解決方案</a></p>
                             <p class="item-date"><time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time></p>
                         </div>
                     </li>
@@ -374,7 +392,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2012/05/ssh-security-note.html" class="thumbnail">
+                            <a href="/2012/05/ssh-security-note/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -384,7 +402,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/05/ssh-security-note.html" class="title">SSH 安全性設定筆記</a></p>
+                            <p class="item-title"><a href="/2012/05/ssh-security-note/" class="title">SSH 安全性設定筆記</a></p>
                             <p class="item-date"><time datetime="2012-05-18T06:16:00.000Z" itemprop="datePublished">2012-05-18</time></p>
                         </div>
                     </li>
@@ -392,7 +410,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2012/03/remote-git-access-via-ssh.html" class="thumbnail">
+                            <a href="/2012/03/remote-git-access-via-ssh/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -402,7 +420,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2012/03/remote-git-access-via-ssh.html" class="title">透過 ssh 遠端存取 git repository</a></p>
+                            <p class="item-title"><a href="/2012/03/remote-git-access-via-ssh/" class="title">透過 ssh 遠端存取 git repository</a></p>
                             <p class="item-date"><time datetime="2012-03-22T19:31:00.000Z" itemprop="datePublished">2012-03-23</time></p>
                         </div>
                     </li>

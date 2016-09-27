@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Git on Windows 安裝筆記 | CrBoy&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。
+Windows 上的各種 Git在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 msysgit 在 github 上的首頁 與 StackOverflow 上的討論，我目前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git on Windows 安裝筆記">
+<meta property="og:url" content="http://blog.crboy.net/2012/05/git-on-windows.html">
+<meta property="og:site_name" content="CrBoy's Blog">
+<meta property="og:description" content="Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。
+Windows 上的各種 Git在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 msysgit 在 github 上的首頁 與 StackOverflow 上的討論，我目前">
+<meta property="og:image" content="http://blog.crboy.net/2012/05/git-on-windows/wingit/01.png">
+<meta property="og:updated_time" content="2016-05-03T23:26:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git on Windows 安裝筆記">
+<meta name="twitter:description" content="Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。
+Windows 上的各種 Git在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 msysgit 在 github 上的首頁 與 StackOverflow 上的討論，我目前">
+<meta name="twitter:image" content="http://blog.crboy.net/2012/05/git-on-windows/wingit/01.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+    
+    
+
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">CrBoy&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://blog.crboy.net"></form>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                <td>
+                    
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜尋"><input type="hidden" name="sitesearch" value="http://blog.crboy.net"></form>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">小畢 (CrBoy)</h2>
+            <h3 id="title">高級打雜師</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>台南/台北</span>
+            <a id="follow" target="_blank" href="https://github.com/CrBoy">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                5
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                11
+                <span>標籤</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="https://github.com/CrBoy" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/CrBoy.tw" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-git-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Git on Windows 安裝筆記
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2012/05/git-on-windows.html">
+            <time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/教學/">教學</a>, <a class="tag-link" href="/tags/筆記/">筆記</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。</p>
+<h2 id="Windows-上的各種-Git"><a href="#Windows-上的各種-Git" class="headerlink" title="Windows 上的各種 Git"></a>Windows 上的各種 Git</h2><p>在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 <a href="http://msysgit.github.com/" target="_blank" rel="external">msysgit 在 github 上的首頁</a> 與 <a href="http://stackoverflow.com/questions/3672272/msysgit-vs-git-for-windows" target="_blank" rel="external">StackOverflow 上的討論</a>，我目前的理解是：</p>
+<ul>
+<li>msysGit 是 msys + Git 的完整環境，包含了 build 程式用的 toolchain，同時他的執行檔是直接在 user (或者該說是 developer) 的機器上 compile 出來的，使用者隨時可以透過 <code>git pull</code> 取得最新版的 msysGit 來編譯，算是給 git 開發者用的。</li>
+<li>Git for Windows 可說是 msysGit 的「產出」，是預先 compile 好的 <code>git.exe</code> 還有其他執行檔們…其中只包含了基本的 msys 環境、有 bash、ssh、甚至 Git GUI 等工具，但是沒有 toolchain，適合單純使用（操作）git 的使用者安裝。</li>
+</ul>
+<p>另外還可能會找到一個更有名的東西，稱為 <a href="http://code.google.com/p/tortoisegit/" target="_blank" rel="external">TortoiseGit</a>，這是知名專案 <a href="http://tortoisesvn.net/" target="_blank" rel="external">TortoiseSVN</a> 的相關專案，顧名思義，就是烏龜殼包了 Git 啦！要注意的是，他只是一個 Git frontend，需要指定相關執行檔 (如 <code>git.exe</code>) 的位置才能工作。特別的是，他本身附帶了 PuTTY 的 ssh client (<code>plink.exe</code>)，讓使用者可以透過比較符合 windows 使用習慣的方式來使用 ssh，如果不是很熟 linux 或是 GUI 狂熱份子可能會比較喜歡。XD</p>
+<p>註：知名專案 cygwin 也可以安裝 git 並在 command line 下使用，但對於沒在使用 cygwin 的使用者而言麻煩得多，故此處不介紹。</p>
+<p>這篇文章分成三個部分：首先介紹 Git for Windows (免 compile 的那個) 的安裝，接著是 msysGit (需要 compile 的那個) 的安裝，最後會介紹 TortoiseGit 的安裝，並以一個簡單的 git clone 作為結束。如果是一般單純想在 windows 上用 git 的人，可以只看第一跟第三部分即可，第二部分就當作參考資料吧！</p>
+<a id="more"></a>
+<p>另外報告一下我用的環境：</p>
+<ul>
+<li>Windows 7 32bit</li>
+<li>msysGit 1.7.10</li>
+<li>TortoiseGit 1.7.9 32bit</li>
+</ul>
+<h2 id="Git-for-Windows-WinGit"><a href="#Git-for-Windows-WinGit" class="headerlink" title="Git for Windows (WinGit)"></a>Git for Windows (WinGit)</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysGit 的官方網站</a>下載 <code>Git-(版本)-(日期).exe</code> </p>
+</li>
+<li><p>開始安裝</p>
+<p> 安裝精靈  </p>
+ <img src="/2012/05/git-on-windows/wingit/01.png" alt="wingit/01.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/02.png" alt="wingit/02.png" title="">
+<p> 預設的安裝位置，TortoiseGit 預設也是搜尋這個位置，建議不要改  </p>
+ <img src="/2012/05/git-on-windows/wingit/03.png" alt="wingit/03.png" title="">
+<p> 因為環境是 Windows 7，我就不加入快速啟動了。另外，這一頁最下面的選項 (被遮住了) 如果勾選的話，可以把 Windows 本來的 command line (<code>cmd.exe</code>) 的字型也變好看，是否要用就見仁見智囉  </p>
+ <img src="/2012/05/git-on-windows/wingit/04.png" alt="wingit/04.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/05.png" alt="wingit/05.png" title="">
+<p> 建議保留 Git Bash，至於要不要把 unix tools 加入 windows command line 的 path 就看人了，如果不了解的話，保留預設值 (第一個) 即可  </p>
+ <img src="/2012/05/git-on-windows/wingit/06.png" alt="wingit/06.png" title="">
+<p> 關於換行格式的問題。除非有特殊考量，一般使用第一個選項會比較通用  </p>
+ <img src="/2012/05/git-on-windows/wingit/07.png" alt="wingit/07.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/08.png" alt="wingit/08.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/09.png" alt="wingit/09.png" title="">
+<p> 安裝完成後，桌面上會出現 Git Bash 的 icon  </p>
+ <img src="/2012/05/git-on-windows/wingit/10.png" alt="wingit/10.png" title="">
+</li>
+<li><p>桌面上按右鍵就看得到快顯功能表已經新增 Git 相關選項了，安裝完成！</p>
+ <img src="/2012/05/git-on-windows/wingit/11.png" alt="wingit/11.png" title="">
+<p> 這是 Git Bash 的執行畫面，會操作 Linux 的人應該會很容易上手  </p>
+ <img src="/2012/05/git-on-windows/wingit/12.png" alt="wingit/12.png" title="">
+<p> 這個則是 Git GUI 的執行畫面，如果所在目錄不是 git repository 的話，只會有這三個選項  </p>
+ <img src="/2012/05/git-on-windows/wingit/13.png" alt="wingit/13.png" title="">
+<p> 可以 clone repository (就是 <code>git-clone</code>)  </p>
+ <img src="/2012/05/git-on-windows/wingit/14.png" alt="wingit/14.png" title="">
+<p> 如果在 git repo 中執行 Git GUI 的話，會看到一個具有完整 git 功能的畫面  </p>
+ <img src="/2012/05/git-on-windows/wingit/15.png" alt="wingit/15.png" title="">
+<p> 如果是 Linux user，或是只想要以最簡單的方式使用 git 的話，其實只要安裝這個就夠了。透過 Git Bash 就可以像一般 Linux 上操作，透過 Git GUI 也可以進行同樣功能的操作。</p>
+<p> 需要注意的是，如果單純使用 WinGit 的話，要使用 ssh 必須手動透過指令去設定。就像在 Linux 上一樣，ssh key 放在 ~/.ssh 底下，可以透過 git bash 去執行 ssh-keygen 來產生 key。</p>
+</li>
+</ol>
+<h2 id="msysGit-參考用，大部分人可跳過此段"><a href="#msysGit-參考用，大部分人可跳過此段" class="headerlink" title="msysGit (參考用，大部分人可跳過此段)"></a>msysGit (參考用，大部分人可跳過此段)</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysGit 的官方網站</a>下載 <code>msysGit-fullinstall-(版本)-(日期).exe</code> (或是 <code>netinstall</code> 版，但是因為某些意外，他們的安裝行為有微妙的差異)</p>
+</li>
+<li><p>安裝 msysGit</p>
+<p> 選擇安裝位置  </p>
+ <img src="/2012/05/git-on-windows/msysgit/01.png" alt="msysgit/01.png" title="">  
+<p> 這邊有件奇妙的事情，fullinstall 版的預設會在這目錄下建立一個 <code>msysgit</code> 的目錄，造成真正的安裝路徑為 <code>C:\msysgit\msysgit</code>，而 netinstall 版就沒有這個問題。這裡我們保留預設值，雖然奇怪但不影響後面的操作。</p>
+<p> 安裝中  </p>
+ <img src="/2012/05/git-on-windows/msysgit/02.png" alt="msysgit/02.png" title="">
+<p> 檔案複製完成後，<strong>自動</strong>開始編譯  </p>
+ <img src="/2012/05/git-on-windows/msysgit/03.png" alt="msysgit/03.png" title="">
+<p> 編譯完成  </p>
+ <img src="/2012/05/git-on-windows/msysgit/04.png" alt="msysgit/04.png" title="">
+</li>
+</ol>
+<h2 id="TortoiseGit"><a href="#TortoiseGit" class="headerlink" title="TortoiseGit"></a>TortoiseGit</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/tortoisegit/" target="_blank" rel="external">TortoiseGit 的官方網站</a>下載 <code>TortoiseGit-(版本)-(32bit|64bit).msi</code></p>
+</li>
+<li><p>安裝 TortoiseGit</p>
+ <img src="/2012/05/git-on-windows/tortoisegit/01.png" alt="tortoisegit/01.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/02.png" alt="tortoisegit/02.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/03.png" alt="tortoisegit/03.png" title="">
+<p> TortoiseGit 似乎比較想要我們用 TortoisePLink，那就用用看吧！</p>
+ <img src="/2012/05/git-on-windows/tortoisegit/04.png" alt="tortoisegit/04.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/05.png" alt="tortoisegit/05.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/06.png" alt="tortoisegit/06.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/07.png" alt="tortoisegit/07.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/08.png" alt="tortoisegit/08.png" title="">
+<p> 如果你是安裝 msysGit (自行編譯那個) 的話，啟動 TortoiseGit 的時候會跳出錯誤訊息，他找不到 <code>git.exe</code>，也就是 Git 的執行檔。如果是安裝 WinGit 的話就沒有這個問題  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/09.png" alt="tortoisegit/09.png" title="">
+<p> 如同前面所說的，msysGit 被裝在 <code>C:\msysgit\msysgit</code> 裡了，而我們想要找的執行檔位於 <code>bin</code> 底下  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/10.png" alt="tortoisegit/10.png" title="">
+<p> 選好後，「Git.exe Path:」的後面應該會出現這樣的路徑，如果 git 被安裝在別的地方，可自行變通  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/11.png" alt="tortoisegit/11.png" title="">
+<p> 此外，不管使用那個版本的 Git backend，都必須設定自己的名字與 email，這兩項資訊在 Git 中是相當必要的  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/12.png" alt="tortoisegit/12.png" title="">
+</li>
+<li><p>產生 ssh key</p>
+<p> 由於我們打算運用 putty 來連線，所以要產生專門給 putty 用的 ssh key，這跟一般 Linux 上在用的 OpenSSH 的 private key 格式是不同的。</p>
+<p> 打開 Puttygen  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/13.png" alt="tortoisegit/13.png" title="">
+<p> 按下 Generate 即可自動產生一把 key，有趣的是他會要求你移動滑鼠來產生亂數，用以生成這把 key。(在 Linux 上用 ssh-keygen 就不用這樣，是為了好玩還是 windows 沒有亂數產生器啊？)  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/14.png" alt="tortoisegit/14.png" title="">
+<p> 邊動滑鼠就可以看到進度邊跑  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/15.png" alt="tortoisegit/15.png" title="">
+<p> 產生出來的 key，Puttygen 會幫你把 public key 顯示出來，可以自定 comment，並利用 Save public key 將其輸出。這把 public key 就是用來提供給 git server 管理者用的身分憑證。  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/16.png" alt="tortoisegit/16.png" title="">
+<p> 如果事前已經有在其他地方產生過 OpenSSH 格式的 private key，可以透過上方選單中的 Conversions -&gt; Import 來匯入，或是用 Load 的功能也可以匯入其他格式的 ssh key。匯入後跟剛產生一把新的狀況是一樣的，可以繼續下面的步驟。</p>
+<p> 接下來就可以利用 Save private key 來匯出跟那把 public key 對應的 private key 了 (好拗口)。要特別注意的是，這把 private key (相當於密碼) 不可以弄丟，也不可以洩漏。萬一弄丟，那對應的 public key 也就沒辦法使用了，如果洩漏的話則有身分被盜用的危險！要注意！(就相當於密碼不能忘記也不可以洩漏一樣)</p>
+<p> 為了更好的安全性，建議輸入 passphrase 保護這把 private key。如果設定了 passphrase，則每次使用到這把 key 的時候都得輸入 passphrase。有些人會覺得奇怪，這樣跟直接用密碼登入有什麼不一樣呢？最大的不同就是，密碼登入是利用密碼作為憑證，有密碼的人就可以登入。透過 key 登入是利用 key 作為憑證，別人拿不到 key 就沒辦法盜用身分 (除非對方有很強大的運算能力，這不在一般討論範圍內)，而 passphrase 是用來保護 key 沒辦法被盜用的措施，此舉可達成雙因素認證，比密碼認證更安全！(有個說法是，沒有用 passphrase 的 key 就跟把密碼存成文字檔放在電腦裡一樣)</p>
+<p> 如果沒有輸入 passphrase，會跳出警告。  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/17.png" alt="tortoisegit/17.png" title="">  
+<p> 可以利用 Pageant 幫我們管理 ssh key (因為一個人可能同時有很多把 key)  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/18.png" alt="tortoisegit/18.png" title="">
+<p> 按下 Add Key  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/19.png" alt="tortoisegit/19.png" title="">
+<p> 選擇之前做好的 ppk 格式的 key  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/20.png" alt="tortoisegit/20.png" title="">
+<p> 這樣就匯入一把 ppk 格式的 ssh key 了  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/21.png" alt="tortoisegit/21.png" title="">
+</li>
+<li><p>初步使用以確定設定正常</p>
+<p> Git clone 看看  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/22.png" alt="tortoisegit/22.png" title="">
+<p> 輸入 URL，雖然我搞不太清楚他的格式，不過似乎 ssh 不用寫 <code>ssh://</code>，<code>git://</code> 之類的才需要特別寫  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/23.png" alt="tortoisegit/23.png" title="">  
+<p> 這個例子裡，我用另一台虛擬機器(192.168.2.12)，以 gitolite 架了一個 git server，如果是使用別人提供的服務，請洽詢系統管理員提供「帳號」、「主機位址」跟「repo 名稱」。底下的 Load Putty Key 也可以用來載入 ssh key，跟之前在 Pageant 上做的有一樣的效果。</p>
+<p> 由於是第一次連到此主機，會跳出警告。請跟您的系統管理員確認主機的 host key fingerprint，如果跟畫面中「ssh-rsa 2048 21:89:3a:38:……」位置所顯示的 fingerprint 顯示的不同 (你看到的會跟圖上不一樣)，請不要連線，你可能已經遭受某種網路攻擊  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/24.png" alt="tortoisegit/24.png" title="">
+<p> 之前在製作 private key 的時候有用 passphrase 進行保護的話，會在這時候請你輸入  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/25.png" alt="tortoisegit/25.png" title="">
+<p> 飛天烏龜克隆中  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/26.png" alt="tortoisegit/26.png" title="">  
+<p> 結束後，就可以在目標目錄中看到 clone 回來的東西，也就確定我們的安裝是正常的。</p>
+</li>
+</ol>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>對大部分人來說，使用 WinGit + TortoiseGit 就沒問題了，除非是需要進行 git 本身的開發才需要 checkout git source code。至於我個人實在很不能接受複雜的 TortoiseGit，使用 WinGit (Git Bash) 最符合我的習慣，偶爾可以透過 Git GUI 作為輔助吧。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2012/05/git-on-windows.html" data-id="citki22tw0001oy7q02l4zwfv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2013/09/balsamiq-mockups.html" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    好用的 mockup、wireframe 工具：Balsamiq Mockups
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2012/05/solution-for-cannot-open-shared-object.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">「cannot open shared object file」的解決方案</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2013/09/balsamiq-mockups.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2013/09/balsamiq-mockups/1.png)" alt="好用的 mockup、wireframe 工具：Balsamiq Mockups" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2013/09/balsamiq-mockups.html" class="title">好用的 mockup、wireframe 工具：Balsamiq Mockups</a></p>
+                            <p class="item-date"><time datetime="2013-09-26T18:21:00.000Z" itemprop="datePublished">2013-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2012/05/git-on-windows.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2012/05/git-on-windows/wingit/01.png)" alt="Git on Windows 安裝筆記" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2012/05/git-on-windows.html" class="title">Git on Windows 安裝筆記</a></p>
+                            <p class="item-date"><time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2012/05/solution-for-cannot-open-shared-object.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2012/05/solution-for-cannot-open-shared-object.html" class="title">「cannot open shared object file」的解決方案</a></p>
+                            <p class="item-date"><time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2012/05/ssh-security-note.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2012/05/ssh-security-note.html" class="title">SSH 安全性設定筆記</a></p>
+                            <p class="item-date"><time datetime="2012-05-18T06:16:00.000Z" itemprop="datePublished">2012-05-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2012/03/remote-git-access-via-ssh.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2012/03/remote-git-access-via-ssh.html" class="title">透過 ssh 遠端存取 git repository</a></p>
+                            <p class="item-date"><time datetime="2012-03-22T19:31:00.000Z" itemprop="datePublished">2012-03-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">歸檔</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 CrBoy<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

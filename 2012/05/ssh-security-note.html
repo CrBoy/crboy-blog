@@ -3,14 +3,45 @@
 <head>
     <meta charset="utf-8">
     
-    <title>歸檔 | CrBoy&#39;s Blog</title>
+    <title>SSH 安全性設定筆記 | CrBoy&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="CrBoy's Blog">
-<meta property="og:url" content="http://blog.crboy.net/archives/index.html">
+    <meta name="description" content="以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 /etc/ssh/sshd_config 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。
+
+修改預設 port (可用多行開啟多個 port)
+Port &amp;lt;port&amp;gt;
+
+僅監聽特定 ip (適用於多網卡/多 IP 的情形)
+ListenAddress 192.168.1.10
+
+禁止 root 登入
+Permit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH 安全性設定筆記">
+<meta property="og:url" content="http://blog.crboy.net/2012/05/ssh-security-note.html">
 <meta property="og:site_name" content="CrBoy's Blog">
+<meta property="og:description" content="以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 /etc/ssh/sshd_config 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。
+
+修改預設 port (可用多行開啟多個 port)
+Port &amp;lt;port&amp;gt;
+
+僅監聽特定 ip (適用於多網卡/多 IP 的情形)
+ListenAddress 192.168.1.10
+
+禁止 root 登入
+Permit">
+<meta property="og:updated_time" content="2016-05-07T17:27:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CrBoy's Blog">
+<meta name="twitter:title" content="SSH 安全性設定筆記">
+<meta name="twitter:description" content="以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 /etc/ssh/sshd_config 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。
+
+修改預設 port (可用多行開啟多個 port)
+Port &amp;lt;port&amp;gt;
+
+僅監聽特定 ip (適用於多網卡/多 IP 的情形)
+ListenAddress 192.168.1.10
+
+禁止 root 登入
+Permit">
     
 
     
@@ -139,118 +170,16 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2013</h1>
-            </div>
+            <section id="main"><article id="post-ssh-security-note" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2013/09/balsamiq-mockups.html">好用的 mockup、wireframe 工具：Balsamiq Mockups</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/09/balsamiq-mockups.html">
-            <time datetime="2013-09-26T18:21:00.000Z" itemprop="datePublished">2013-09-27</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/網頁設計/">網頁設計</a>, <a class="tag-link" href="/tags/視覺設計/">視覺設計</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2012</h1>
-            </div>
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/git-on-windows.html">Git on Windows 安裝筆記</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/git-on-windows.html">
-            <time datetime="2012-05-24T16:25:00.000Z" itemprop="datePublished">2012-05-25</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/教學/">教學</a>, <a class="tag-link" href="/tags/筆記/">筆記</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/solution-for-cannot-open-shared-object.html">「cannot open shared object file」的解決方案</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/05/solution-for-cannot-open-shared-object.html">
-            <time datetime="2012-05-23T07:20:00.000Z" itemprop="datePublished">2012-05-23</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a>, <a class="tag-link" href="/tags/教學/">教學</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/05/ssh-security-note.html">SSH 安全性設定筆記</a>
+        <h1 class="article-title" itemprop="name">
+            SSH 安全性設定筆記
         </h1>
     
 
@@ -272,41 +201,216 @@
     </div>
 
                 </div>
-            </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 <code>/etc/ssh/sshd_config</code> 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。</p>
+<ul>
+<li><p>修改預設 port (可用多行開啟多個 port)</p>
+<pre><code>Port &lt;port&gt;
+</code></pre></li>
+<li><p>僅監聽特定 ip (適用於多網卡/多 IP 的情形)</p>
+<pre><code>ListenAddress 192.168.1.10
+</code></pre></li>
+<li><p>禁止 root 登入</p>
+<pre><code>PermitRootlogin no
+</code></pre><p>  管理者必須先以個人帳號登入，再 su 成 root，或利用 sudo 工作。</p>
+</li>
+<li><p>禁止使用空密碼登入</p>
+<pre><code>PermitEmptyPasswords no
+</code></pre></li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>僅允許或拒絕特定帳號或群組登入</p>
+<pre><code>AllowUsers &lt;user1&gt; &lt;user2&gt; &lt;user3&gt;
+AllowGroups &lt;group&gt;
+DenyUsers *
+DenyGroups no-ssh
+</code></pre><p>  根據實驗，對於同一帳號而言，如果同時 Allow 跟 Deny 的話，結果會是 Deny 的。</p>
+</li>
+<li><p>廢除密碼登錄，強迫使用 RSA/DSA 驗證</p>
+<pre><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
+PasswordAuthentication no
+</code></pre><p>  並確保 user 的 <code>~/.ssh</code> 權限為 <code>700</code>，同時將該 user 的 public key 加入其 <code>~/.ssh/authorized_keys</code> 中。Public key 的產生方式可搜尋 <code>ssh-keygen</code>。</p>
+</li>
+<li><p>僅允許 SSHv2</p>
+<pre><code>Protocol 2
+</code></pre></li>
+<li><p>限制特定使用者、群組、主機或位址的登入行為，這裡以限制 <code>somebody</code> 與 <code>handsomebody</code> 不可使用密碼登入為例</p>
+<pre><code>Match User somebody,handsomebody
+PasswordAuthentication no
+</code></pre><p>  但是要怎麼結束 Match block？我只找到有資料說「In sshd_config, Match blocks must be located at the end of the file.」，如果真是這樣，那就只好認了。</p>
+</li>
+<li><p>使用 TCP wrappers 限制來源 IP</p>
+<pre><code># /etc/hosts.deny
+sshd: ALL
+
+# /etc/hosts.allow
+sshd: 192.168.1 1.2.3.4 # 僅允許 192.168.1.* 與 1.2.3.4 連線
+</code></pre></li>
+<li><p>使用 iptables 限制來源 IP</p>
+<pre><code># iptables -A INPUT -p tcp -m state --state NEW --source 1.2.3.4 --dport 22 -j ACCEPT
+# iptables -A INPUT -p tcp --dport 22 -j DROP
+</code></pre><p>  設定會立即生效，但若希望重開機後還能保存，需要手動儲存 iptables 的設定。</p>
+</li>
+<li><p>時間鎖定 (這段直接引用並稍微修改<a href="http://os.51cto.com/art/200803/68174_2.htm" target="_blank" rel="external">原作者</a>的文字，有空再消化整理)</p>
+</li>
+</ul>
+<blockquote>
+<p>你可以使用不同的 iptables 參數來限制到 SSH 服務的連接，讓其在一個特定的時間範圍內可以連接，其他時間不能連接。你可以在下面的任何例子中使用 <code>/second</code>、<code>/minute</code>、<code>/hour</code> 或 <code>/day</code> 開關。<br>第一個例子，如果一個用戶輸入了錯誤的密碼，鎖定一分鐘內不允許在訪問 SSH 服務，這樣每個用戶在一分鐘內只能嘗試一次登錄</p>
+<pre><code># iptables -A INPUT -p tcp -m state --syn --state NEW --dport 22 -m limit --limit 1/minute --limit-burst 1 -j ACCEPT
+# iptables -A INPUT -p tcp -m state --syn --state NEW --dport 22 -j DROP
+</code></pre><p>第二個例子，設置 iptables 只允許主機 193.180.177.13 連接到 SSH 服務，在嘗試三次失敗登錄後，iptables 允許該主機每分鐘嘗試一次登錄</p>
+<pre><code># iptables -A INPUT -p tcp -s 193.180.177.13 -m state --syn --state NEW --dport 22 -m limit --limit 1/minute --limit-burst 1 -j ACCEPT
+# iptables -A INPUT -p tcp -s 193.180.177.13 -m state --syn --state NEW --dport 22 -j DROP
+</code></pre></blockquote>
+<ul>
+<li><p>檢查相關檔案權限，不安全則不允許登入</p>
+<pre><code>StrictModes yes
+</code></pre><p>  某些相關檔案權限設定若有錯誤時，可能造成安全性風險。如使用者的 ~/.ssh/authorized_keys 權限若為 666，可能造成其他人可以盜用帳號。</p>
+</li>
+<li><p>自訂使用者登入時顯示的 banner (話說這跟安全性有什麼關係…? 大概可以用社交方式嚇跑壞人吧…= =a)</p>
+<pre><code>Banner /etc/ssh/banner # 任意文字檔
+</code></pre></li>
+<li><p>限制 su/sudo 名單</p>
+<pre><code># vi /etc/pam.d/su
+auth       required     /lib/security/$ISA/pam_wheel.so use_uid
+
+# visudo
+%wheel  ALL = (ALL) ALL
+
+# gpasswd -a user1 wheel
+</code></pre></li>
+<li><p>限制 ssh 使用者名單</p>
+<pre><code># vi /etc/pam.d/sshd
+auth required pam_listfile.so item=user sense=allow file=/etc/ssh_users onerr=fail
+# echo USERNAME &gt;&gt; /etc/ssh_users
+</code></pre></li>
+</ul>
+<h2 id="參考文章列表"><a href="#參考文章列表" class="headerlink" title="參考文章列表"></a>參考文章列表</h2><ul>
+<li><a href="http://www.hkcode.com/linux-bsd-notes/176" target="_blank" rel="external">網絡技術日誌 - SSH 安全設定</a></li>
+<li><a href="http://www.study-area.org/tips/ssh_tips.htm" target="_blank" rel="external">SSH 的一些安全小技巧 by Netman</a> (後半段有個有趣的應用技，讓人透過 web 去暫時允許某 ip 登入 ssh，期限 5 分鐘!)</li>
+<li><a href="http://os.51cto.com/art/200803/68174.htm" target="_blank" rel="external">高级 SSH 安全技巧</a></li>
+<li><a href="http://linux.vbird.org/linux_server/0310telnetssh.php#ssh_sshdconfig" target="_blank" rel="external">鳥哥的 Linux 私房菜</a></li>
+<li><a href="http://serverfault.com/questions/238711/force-ssh-public-key-authentication-for-specific-users" target="_blank" rel="external">Force SSH public key authentication for specific users</a></li>
+</ul>
+
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2012/03/remote-git-access-via-ssh.html">透過 ssh 遠端存取 git repository</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2012/03/remote-git-access-via-ssh.html">
-            <time datetime="2012-03-22T19:31:00.000Z" itemprop="datePublished">2012-03-23</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/教學/">教學</a>
-    </div>
 
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note.html" data-id="citki22v8000hoy7qiyulykn5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2012/05/solution-for-cannot-open-shared-object.html" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    「cannot open shared object file」的解決方案
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2012/03/remote-git-access-via-ssh.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">透過 ssh 遠端存取 git repository</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.crboy.net/"/>
-  <updated>2016-03-19T21:36:57.000Z</updated>
+  <updated>2016-05-03T23:42:45.000Z</updated>
   <id>http://blog.crboy.net/</id>
   
   <author>
@@ -16,29 +16,514 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://blog.crboy.net/2016/03/20/hello-world/"/>
-    <id>http://blog.crboy.net/2016/03/20/hello-world/</id>
-    <published>2016-03-19T21:36:57.000Z</published>
-    <updated>2016-03-19T21:36:57.000Z</updated>
+    <title>好用的 mockup、wireframe 工具：Balsamiq Mockups</title>
+    <link href="http://blog.crboy.net/2013/09/balsamiq-mockups.html"/>
+    <id>http://blog.crboy.net/2013/09/balsamiq-mockups.html</id>
+    <published>2013-09-26T18:21:00.000Z</published>
+    <updated>2016-05-03T23:42:45.000Z</updated>
     
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>對於一個美術白癡來說，要設計一個網站的外觀，實在有點困難。有時候要把心中構想先畫出來給人看，都覺得力不從心，所以只好直接寫一個網頁出來，調 CSS 調老半天，只為了把心中的畫面呈現給人「看看再說」。上面所說的作法，做出來的東西比較類似於 prototype，也就是已經包含了部分 CSS/JavaScript 的完整網頁，也許缺的只是真正會 work 的功能還有各種比較細節的調整而已。但萬一這樣做出來的東西不合人家(也許是主管、客戶，甚至是自己)的胃口，那花的這些時間就算沒有全部白費，也浪費掉不少了。  </p>
+<p>或許有人會說，「我寫 prototype 超快我超強！」但你再強你有人家設計師用 photoshop 隨便畫畫強嗎？雖然人家畫出來的就是一張圖，不會動也不能點，但是省時省力，又能把想表現的重點突顯出來，用來作為前期的討論跟比較相當適合！可能講成這樣還是有人鐵齒…那試想一個狀況：客戶看了你的 prototype 之後，跟你講了一堆元件說要換位置，下面這個按鈕移到上面去(立刻修改HTML)，這個選單要大一點(趕快調整 font-size, width, height，啊破版了再改一下另外那個…)，這些東西的間距要小一點，整個寬度要一樣(調 margin 調老半天)…..總而言之，對於外觀的要求，在圖片上討論常常比在程式碼中討論來得容易，所以也才有所謂的 wireframe 與 mockup 的出現。  </p>
+<a id="more"></a>
+<p>這邊不深究 wireframe 與 mockup 兩者的差別，下面通通用 mockup 來表示。Mockup 是一種用來呈現成品大致外觀的工具，他不能拿來使用，但是可以讓人容易想像成品的呈現方式 (人類果然是視覺的動物…)。以前看過一些人是用 photoshop 之類的影像處理軟體在畫 mockup，之後才去作切版套版…但對於一個美術白癡而言實在太困難了，小弟實在是 photoshop 苦手orz。好在有人推薦了這套工具：<a href="http://balsamiq.com/products/mockups/" target="_blank" rel="external">Balsamiq Mockups</a>，他是一個很好用的畫 mockup 工具，內建數十種常用元件，可以用來設計網站、視窗程式或是手機介面。下面就直接來介紹一下。  </p>
+<p>下載跟安裝都很簡單，不多說了，Google 一下或是點上面的連結就可以下載….我是在 Mac 上安裝的，但他也有 Windows 跟 Linux 版，甚至還有 Google Drive 的 plugin （！）  </p>
+<p>這是開啟後的畫面，可以看到左下角指出我只有 7 天的試用期，購買的話則是美金 $79，其實對我來說有點貴XD 但如果是工作所需的話，其實這個價倒不會有什麼問題…  </p>
+<img src="/2013/09/balsamiq-mockups/1.png" alt="1.png" title="">
+<p>只要花幾分鐘，從上面拉一些元件下來，打幾個字(不打也沒關係，他都有預設的文字)，就可以快速「畫」出一個網站…我實在很喜歡這個 browser window，讓我畫出來的東西突然加了20分….XD  </p>
+<img src="/2013/09/balsamiq-mockups/2.png" alt="2.png" title="">
+<p>覺得中間的框框實在不太好看…所以就塞了點假文章進去。(我用了一個<a href="http://www.blindtextgenerator.com/" target="_blank" rel="external">英文的假文產生器</a>，如果想寫中文的可以參考看看<a href="http://more.handlino.com/" target="_blank" rel="external">和多的中文假文產生器</a>) 嗯….看起來還算有模有樣呢~  </p>
+<img src="/2013/09/balsamiq-mockups/3.png" alt="3.png" title="">
+<p>裡面的元件實在太多了，每次都要用選的很麻煩，如果知道大概名字的話，可以透過左上角的 Quick Add 直接搜尋加入  </p>
+<img src="/2013/09/balsamiq-mockups/4.png" alt="4.png" title="">
+<p>元件中文字的設定也很簡單，常常都是簡單打個字他就會幫你做出想要的東西了，前提當然是元件要用對…每個元件預設都有範例可以依循，所以不用擔心不會打，基本的用法都已經在範例中了！  </p>
+<img src="/2013/09/balsamiq-mockups/5.png" alt="5.png" title="">
+<p>每個元件也都有相關的一些外觀設定可以用，可以隨意玩玩  </p>
+<img src="/2013/09/balsamiq-mockups/6.png" alt="6.png" title="">
+<p>例如這個圖片元件(Image)，預設是一個 placeholder 的角色，但也可以讓你放入真正的圖片在你的 mockup 中  </p>
+<img src="/2013/09/balsamiq-mockups/7.png" alt="7.png" title="">
+<p>還可以剪裁圖片成你要的樣子  </p>
+<img src="/2013/09/balsamiq-mockups/8.png" alt="8.png" title="">
+<p>放在畫面中大概就長這樣………XD  </p>
+<img src="/2013/09/balsamiq-mockups/9.png" alt="9.png" title="">
+<p>另外 Balsamiq Mockups 也提供 iPhone 的框框，最有趣的是還有 iPhone 4 跟 iPhone 5 可以選XDDDD，當然也有不同方向提供你作設計。  </p>
+<img src="/2013/09/balsamiq-mockups/10.png" alt="10.png" title="">
+<p>既然有手機元件可以玩，那就自以為很潮的來作個手機版網頁…把旁邊的主要元素複製一份移到手機框框裡面，調整大小之後，就完成了基本的元素！其實就像 RWD 一樣，都是一樣的元素，只是套用了不同 CSS 一樣…然後接著在右上角加個會跳出選單的小 icon，噢，Balsamiq Mockups 提供的 icon 還滿多的，還不賴！  </p>
+<img src="/2013/09/balsamiq-mockups/11.png" alt="11.png" title="">
+<p>於是乎….就完成了一個看起來好像有模有樣的「網站雛形」。如果要拿來做文件，或是提供給一般人看，其實這樣就可以假裝很威了，哈哈！這些東西做起來花不到 20 分鐘呢~其中還包含慢慢瀏覽有哪些元件可以用的時間。如果用 photoshop 來畫，以我的能力可能要花一整個早上吧….@@  </p>
+<img src="/2013/09/balsamiq-mockups/12.png" alt="12.png" title="">
+<p>再來是關於中文的問題，以前的版本會無法顯示中文，所以上面的 demo 才會全部都用英文來當範例，結果沒想到，現在的版本已經把中文的問題解決了XD 所以不需要「Use System Font」才能使用中文囉！雖然這字體實在不像英文版這麼可愛….但至少能用啦XD  </p>
+<img src="/2013/09/balsamiq-mockups/13.png" alt="13.png" title="">
+<p>最後，總不能畫完東西只給自己看吧XD Balsamiq Mockups 提供 export 的功能，可以輸出成 PNG 圖檔或是 PDF 檔，當然也可以放進系統剪貼簿或是直接列印出來。  </p>
+<img src="/2013/09/balsamiq-mockups/14.png" alt="14.png" title="">
+<p>這樣的工具也許有些人(可能是專業設計師或 photoshop 強者)認為沒什麼，但每樣工具都有他不同的目標。Balsamiq Mockups 並沒有辦法用來作各種不同的繪圖，但是他專注於繪製 mockup 這件事上，所以可以讓這件事變得很簡單，門檻很低，特別是對小弟這種美術白癡來說相當受用！不管是網站設計公司、SOHO或是要設計教材之類的用途，都相當實用。推薦~ :P</p>
+]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;對於一個美術白癡來說，要設計一個網站的外觀，實在有點困難。有時候要把心中構想先畫出來給人看，都覺得力不從心，所以只好直接寫一個網頁出來，調 CSS 調老半天，只為了把心中的畫面呈現給人「看看再說」。上面所說的作法，做出來的東西比較類似於 prototype，也就是已經包含了部分 CSS/JavaScript 的完整網頁，也許缺的只是真正會 work 的功能還有各種比較細節的調整而已。但萬一這樣做出來的東西不合人家(也許是主管、客戶，甚至是自己)的胃口，那花的這些時間就算沒有全部白費，也浪費掉不少了。  &lt;/p&gt;
+&lt;p&gt;或許有人會說，「我寫 prototype 超快我超強！」但你再強你有人家設計師用 photoshop 隨便畫畫強嗎？雖然人家畫出來的就是一張圖，不會動也不能點，但是省時省力，又能把想表現的重點突顯出來，用來作為前期的討論跟比較相當適合！可能講成這樣還是有人鐵齒…那試想一個狀況：客戶看了你的 prototype 之後，跟你講了一堆元件說要換位置，下面這個按鈕移到上面去(立刻修改HTML)，這個選單要大一點(趕快調整 font-size, width, height，啊破版了再改一下另外那個…)，這些東西的間距要小一點，整個寬度要一樣(調 margin 調老半天)…..總而言之，對於外觀的要求，在圖片上討論常常比在程式碼中討論來得容易，所以也才有所謂的 wireframe 與 mockup 的出現。  &lt;/p&gt;
     
     </summary>
     
+    
+      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
+    
+      <category term="網頁設計" scheme="http://blog.crboy.net/tags/%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/"/>
+    
+      <category term="視覺設計" scheme="http://blog.crboy.net/tags/%E8%A6%96%E8%A6%BA%E8%A8%AD%E8%A8%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git on Windows 安裝筆記</title>
+    <link href="http://blog.crboy.net/2012/05/git-on-windows.html"/>
+    <id>http://blog.crboy.net/2012/05/git-on-windows.html</id>
+    <published>2012-05-24T16:25:00.000Z</published>
+    <updated>2016-05-03T23:26:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。</p>
+<h2 id="Windows-上的各種-Git"><a href="#Windows-上的各種-Git" class="headerlink" title="Windows 上的各種 Git"></a>Windows 上的各種 Git</h2><p>在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 <a href="http://msysgit.github.com/" target="_blank" rel="external">msysgit 在 github 上的首頁</a> 與 <a href="http://stackoverflow.com/questions/3672272/msysgit-vs-git-for-windows" target="_blank" rel="external">StackOverflow 上的討論</a>，我目前的理解是：</p>
+<ul>
+<li>msysGit 是 msys + Git 的完整環境，包含了 build 程式用的 toolchain，同時他的執行檔是直接在 user (或者該說是 developer) 的機器上 compile 出來的，使用者隨時可以透過 <code>git pull</code> 取得最新版的 msysGit 來編譯，算是給 git 開發者用的。</li>
+<li>Git for Windows 可說是 msysGit 的「產出」，是預先 compile 好的 <code>git.exe</code> 還有其他執行檔們…其中只包含了基本的 msys 環境、有 bash、ssh、甚至 Git GUI 等工具，但是沒有 toolchain，適合單純使用（操作）git 的使用者安裝。</li>
+</ul>
+<p>另外還可能會找到一個更有名的東西，稱為 <a href="http://code.google.com/p/tortoisegit/" target="_blank" rel="external">TortoiseGit</a>，這是知名專案 <a href="http://tortoisesvn.net/" target="_blank" rel="external">TortoiseSVN</a> 的相關專案，顧名思義，就是烏龜殼包了 Git 啦！要注意的是，他只是一個 Git frontend，需要指定相關執行檔 (如 <code>git.exe</code>) 的位置才能工作。特別的是，他本身附帶了 PuTTY 的 ssh client (<code>plink.exe</code>)，讓使用者可以透過比較符合 windows 使用習慣的方式來使用 ssh，如果不是很熟 linux 或是 GUI 狂熱份子可能會比較喜歡。XD</p>
+<p>註：知名專案 cygwin 也可以安裝 git 並在 command line 下使用，但對於沒在使用 cygwin 的使用者而言麻煩得多，故此處不介紹。</p>
+<p>這篇文章分成三個部分：首先介紹 Git for Windows (免 compile 的那個) 的安裝，接著是 msysGit (需要 compile 的那個) 的安裝，最後會介紹 TortoiseGit 的安裝，並以一個簡單的 git clone 作為結束。如果是一般單純想在 windows 上用 git 的人，可以只看第一跟第三部分即可，第二部分就當作參考資料吧！</p>
+<a id="more"></a>
+<p>另外報告一下我用的環境：</p>
+<ul>
+<li>Windows 7 32bit</li>
+<li>msysGit 1.7.10</li>
+<li>TortoiseGit 1.7.9 32bit</li>
+</ul>
+<h2 id="Git-for-Windows-WinGit"><a href="#Git-for-Windows-WinGit" class="headerlink" title="Git for Windows (WinGit)"></a>Git for Windows (WinGit)</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysGit 的官方網站</a>下載 <code>Git-(版本)-(日期).exe</code> </p>
+</li>
+<li><p>開始安裝</p>
+<p> 安裝精靈  </p>
+ <img src="/2012/05/git-on-windows/wingit/01.png" alt="wingit/01.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/02.png" alt="wingit/02.png" title="">
+<p> 預設的安裝位置，TortoiseGit 預設也是搜尋這個位置，建議不要改  </p>
+ <img src="/2012/05/git-on-windows/wingit/03.png" alt="wingit/03.png" title="">
+<p> 因為環境是 Windows 7，我就不加入快速啟動了。另外，這一頁最下面的選項 (被遮住了) 如果勾選的話，可以把 Windows 本來的 command line (<code>cmd.exe</code>) 的字型也變好看，是否要用就見仁見智囉  </p>
+ <img src="/2012/05/git-on-windows/wingit/04.png" alt="wingit/04.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/05.png" alt="wingit/05.png" title="">
+<p> 建議保留 Git Bash，至於要不要把 unix tools 加入 windows command line 的 path 就看人了，如果不了解的話，保留預設值 (第一個) 即可  </p>
+ <img src="/2012/05/git-on-windows/wingit/06.png" alt="wingit/06.png" title="">
+<p> 關於換行格式的問題。除非有特殊考量，一般使用第一個選項會比較通用  </p>
+ <img src="/2012/05/git-on-windows/wingit/07.png" alt="wingit/07.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/08.png" alt="wingit/08.png" title="">
+ <img src="/2012/05/git-on-windows/wingit/09.png" alt="wingit/09.png" title="">
+<p> 安裝完成後，桌面上會出現 Git Bash 的 icon  </p>
+ <img src="/2012/05/git-on-windows/wingit/10.png" alt="wingit/10.png" title="">
+</li>
+<li><p>桌面上按右鍵就看得到快顯功能表已經新增 Git 相關選項了，安裝完成！</p>
+ <img src="/2012/05/git-on-windows/wingit/11.png" alt="wingit/11.png" title="">
+<p> 這是 Git Bash 的執行畫面，會操作 Linux 的人應該會很容易上手  </p>
+ <img src="/2012/05/git-on-windows/wingit/12.png" alt="wingit/12.png" title="">
+<p> 這個則是 Git GUI 的執行畫面，如果所在目錄不是 git repository 的話，只會有這三個選項  </p>
+ <img src="/2012/05/git-on-windows/wingit/13.png" alt="wingit/13.png" title="">
+<p> 可以 clone repository (就是 <code>git-clone</code>)  </p>
+ <img src="/2012/05/git-on-windows/wingit/14.png" alt="wingit/14.png" title="">
+<p> 如果在 git repo 中執行 Git GUI 的話，會看到一個具有完整 git 功能的畫面  </p>
+ <img src="/2012/05/git-on-windows/wingit/15.png" alt="wingit/15.png" title="">
+<p> 如果是 Linux user，或是只想要以最簡單的方式使用 git 的話，其實只要安裝這個就夠了。透過 Git Bash 就可以像一般 Linux 上操作，透過 Git GUI 也可以進行同樣功能的操作。</p>
+<p> 需要注意的是，如果單純使用 WinGit 的話，要使用 ssh 必須手動透過指令去設定。就像在 Linux 上一樣，ssh key 放在 ~/.ssh 底下，可以透過 git bash 去執行 ssh-keygen 來產生 key。</p>
+</li>
+</ol>
+<h2 id="msysGit-參考用，大部分人可跳過此段"><a href="#msysGit-參考用，大部分人可跳過此段" class="headerlink" title="msysGit (參考用，大部分人可跳過此段)"></a>msysGit (參考用，大部分人可跳過此段)</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysGit 的官方網站</a>下載 <code>msysGit-fullinstall-(版本)-(日期).exe</code> (或是 <code>netinstall</code> 版，但是因為某些意外，他們的安裝行為有微妙的差異)</p>
+</li>
+<li><p>安裝 msysGit</p>
+<p> 選擇安裝位置  </p>
+ <img src="/2012/05/git-on-windows/msysgit/01.png" alt="msysgit/01.png" title="">  
+<p> 這邊有件奇妙的事情，fullinstall 版的預設會在這目錄下建立一個 <code>msysgit</code> 的目錄，造成真正的安裝路徑為 <code>C:\msysgit\msysgit</code>，而 netinstall 版就沒有這個問題。這裡我們保留預設值，雖然奇怪但不影響後面的操作。</p>
+<p> 安裝中  </p>
+ <img src="/2012/05/git-on-windows/msysgit/02.png" alt="msysgit/02.png" title="">
+<p> 檔案複製完成後，<strong>自動</strong>開始編譯  </p>
+ <img src="/2012/05/git-on-windows/msysgit/03.png" alt="msysgit/03.png" title="">
+<p> 編譯完成  </p>
+ <img src="/2012/05/git-on-windows/msysgit/04.png" alt="msysgit/04.png" title="">
+</li>
+</ol>
+<h2 id="TortoiseGit"><a href="#TortoiseGit" class="headerlink" title="TortoiseGit"></a>TortoiseGit</h2><ol>
+<li><p>到 <a href="http://code.google.com/p/tortoisegit/" target="_blank" rel="external">TortoiseGit 的官方網站</a>下載 <code>TortoiseGit-(版本)-(32bit|64bit).msi</code></p>
+</li>
+<li><p>安裝 TortoiseGit</p>
+ <img src="/2012/05/git-on-windows/tortoisegit/01.png" alt="tortoisegit/01.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/02.png" alt="tortoisegit/02.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/03.png" alt="tortoisegit/03.png" title="">
+<p> TortoiseGit 似乎比較想要我們用 TortoisePLink，那就用用看吧！</p>
+ <img src="/2012/05/git-on-windows/tortoisegit/04.png" alt="tortoisegit/04.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/05.png" alt="tortoisegit/05.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/06.png" alt="tortoisegit/06.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/07.png" alt="tortoisegit/07.png" title="">
+ <img src="/2012/05/git-on-windows/tortoisegit/08.png" alt="tortoisegit/08.png" title="">
+<p> 如果你是安裝 msysGit (自行編譯那個) 的話，啟動 TortoiseGit 的時候會跳出錯誤訊息，他找不到 <code>git.exe</code>，也就是 Git 的執行檔。如果是安裝 WinGit 的話就沒有這個問題  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/09.png" alt="tortoisegit/09.png" title="">
+<p> 如同前面所說的，msysGit 被裝在 <code>C:\msysgit\msysgit</code> 裡了，而我們想要找的執行檔位於 <code>bin</code> 底下  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/10.png" alt="tortoisegit/10.png" title="">
+<p> 選好後，「Git.exe Path:」的後面應該會出現這樣的路徑，如果 git 被安裝在別的地方，可自行變通  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/11.png" alt="tortoisegit/11.png" title="">
+<p> 此外，不管使用那個版本的 Git backend，都必須設定自己的名字與 email，這兩項資訊在 Git 中是相當必要的  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/12.png" alt="tortoisegit/12.png" title="">
+</li>
+<li><p>產生 ssh key</p>
+<p> 由於我們打算運用 putty 來連線，所以要產生專門給 putty 用的 ssh key，這跟一般 Linux 上在用的 OpenSSH 的 private key 格式是不同的。</p>
+<p> 打開 Puttygen  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/13.png" alt="tortoisegit/13.png" title="">
+<p> 按下 Generate 即可自動產生一把 key，有趣的是他會要求你移動滑鼠來產生亂數，用以生成這把 key。(在 Linux 上用 ssh-keygen 就不用這樣，是為了好玩還是 windows 沒有亂數產生器啊？)  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/14.png" alt="tortoisegit/14.png" title="">
+<p> 邊動滑鼠就可以看到進度邊跑  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/15.png" alt="tortoisegit/15.png" title="">
+<p> 產生出來的 key，Puttygen 會幫你把 public key 顯示出來，可以自定 comment，並利用 Save public key 將其輸出。這把 public key 就是用來提供給 git server 管理者用的身分憑證。  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/16.png" alt="tortoisegit/16.png" title="">
+<p> 如果事前已經有在其他地方產生過 OpenSSH 格式的 private key，可以透過上方選單中的 Conversions -&gt; Import 來匯入，或是用 Load 的功能也可以匯入其他格式的 ssh key。匯入後跟剛產生一把新的狀況是一樣的，可以繼續下面的步驟。</p>
+<p> 接下來就可以利用 Save private key 來匯出跟那把 public key 對應的 private key 了 (好拗口)。要特別注意的是，這把 private key (相當於密碼) 不可以弄丟，也不可以洩漏。萬一弄丟，那對應的 public key 也就沒辦法使用了，如果洩漏的話則有身分被盜用的危險！要注意！(就相當於密碼不能忘記也不可以洩漏一樣)</p>
+<p> 為了更好的安全性，建議輸入 passphrase 保護這把 private key。如果設定了 passphrase，則每次使用到這把 key 的時候都得輸入 passphrase。有些人會覺得奇怪，這樣跟直接用密碼登入有什麼不一樣呢？最大的不同就是，密碼登入是利用密碼作為憑證，有密碼的人就可以登入。透過 key 登入是利用 key 作為憑證，別人拿不到 key 就沒辦法盜用身分 (除非對方有很強大的運算能力，這不在一般討論範圍內)，而 passphrase 是用來保護 key 沒辦法被盜用的措施，此舉可達成雙因素認證，比密碼認證更安全！(有個說法是，沒有用 passphrase 的 key 就跟把密碼存成文字檔放在電腦裡一樣)</p>
+<p> 如果沒有輸入 passphrase，會跳出警告。  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/17.png" alt="tortoisegit/17.png" title="">  
+<p> 可以利用 Pageant 幫我們管理 ssh key (因為一個人可能同時有很多把 key)  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/18.png" alt="tortoisegit/18.png" title="">
+<p> 按下 Add Key  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/19.png" alt="tortoisegit/19.png" title="">
+<p> 選擇之前做好的 ppk 格式的 key  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/20.png" alt="tortoisegit/20.png" title="">
+<p> 這樣就匯入一把 ppk 格式的 ssh key 了  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/21.png" alt="tortoisegit/21.png" title="">
+</li>
+<li><p>初步使用以確定設定正常</p>
+<p> Git clone 看看  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/22.png" alt="tortoisegit/22.png" title="">
+<p> 輸入 URL，雖然我搞不太清楚他的格式，不過似乎 ssh 不用寫 <code>ssh://</code>，<code>git://</code> 之類的才需要特別寫  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/23.png" alt="tortoisegit/23.png" title="">  
+<p> 這個例子裡，我用另一台虛擬機器(192.168.2.12)，以 gitolite 架了一個 git server，如果是使用別人提供的服務，請洽詢系統管理員提供「帳號」、「主機位址」跟「repo 名稱」。底下的 Load Putty Key 也可以用來載入 ssh key，跟之前在 Pageant 上做的有一樣的效果。</p>
+<p> 由於是第一次連到此主機，會跳出警告。請跟您的系統管理員確認主機的 host key fingerprint，如果跟畫面中「ssh-rsa 2048 21:89:3a:38:……」位置所顯示的 fingerprint 顯示的不同 (你看到的會跟圖上不一樣)，請不要連線，你可能已經遭受某種網路攻擊  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/24.png" alt="tortoisegit/24.png" title="">
+<p> 之前在製作 private key 的時候有用 passphrase 進行保護的話，會在這時候請你輸入  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/25.png" alt="tortoisegit/25.png" title="">
+<p> 飛天烏龜克隆中  </p>
+ <img src="/2012/05/git-on-windows/tortoisegit/26.png" alt="tortoisegit/26.png" title="">  
+<p> 結束後，就可以在目標目錄中看到 clone 回來的東西，也就確定我們的安裝是正常的。</p>
+</li>
+</ol>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>對大部分人來說，使用 WinGit + TortoiseGit 就沒問題了，除非是需要進行 git 本身的開發才需要 checkout git source code。至於我個人實在很不能接受複雜的 TortoiseGit，使用 WinGit (Git Bash) 最符合我的習慣，偶爾可以透過 Git GUI 作為輔助吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。&lt;/p&gt;
+&lt;h2 id=&quot;Windows-上的各種-Git&quot;&gt;&lt;a href=&quot;#Windows-上的各種-Git&quot; class=&quot;headerlink&quot; title=&quot;Windows 上的各種 Git&quot;&gt;&lt;/a&gt;Windows 上的各種 Git&lt;/h2&gt;&lt;p&gt;在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 &lt;a href=&quot;http://msysgit.github.com/&quot;&gt;msysgit 在 github 上的首頁&lt;/a&gt; 與 &lt;a href=&quot;http://stackoverflow.com/questions/3672272/msysgit-vs-git-for-windows&quot;&gt;StackOverflow 上的討論&lt;/a&gt;，我目前的理解是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;msysGit 是 msys + Git 的完整環境，包含了 build 程式用的 toolchain，同時他的執行檔是直接在 user (或者該說是 developer) 的機器上 compile 出來的，使用者隨時可以透過 &lt;code&gt;git pull&lt;/code&gt; 取得最新版的 msysGit 來編譯，算是給 git 開發者用的。&lt;/li&gt;
+&lt;li&gt;Git for Windows 可說是 msysGit 的「產出」，是預先 compile 好的 &lt;code&gt;git.exe&lt;/code&gt; 還有其他執行檔們…其中只包含了基本的 msys 環境、有 bash、ssh、甚至 Git GUI 等工具，但是沒有 toolchain，適合單純使用（操作）git 的使用者安裝。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外還可能會找到一個更有名的東西，稱為 &lt;a href=&quot;http://code.google.com/p/tortoisegit/&quot;&gt;TortoiseGit&lt;/a&gt;，這是知名專案 &lt;a href=&quot;http://tortoisesvn.net/&quot;&gt;TortoiseSVN&lt;/a&gt; 的相關專案，顧名思義，就是烏龜殼包了 Git 啦！要注意的是，他只是一個 Git frontend，需要指定相關執行檔 (如 &lt;code&gt;git.exe&lt;/code&gt;) 的位置才能工作。特別的是，他本身附帶了 PuTTY 的 ssh client (&lt;code&gt;plink.exe&lt;/code&gt;)，讓使用者可以透過比較符合 windows 使用習慣的方式來使用 ssh，如果不是很熟 linux 或是 GUI 狂熱份子可能會比較喜歡。XD&lt;/p&gt;
+&lt;p&gt;註：知名專案 cygwin 也可以安裝 git 並在 command line 下使用，但對於沒在使用 cygwin 的使用者而言麻煩得多，故此處不介紹。&lt;/p&gt;
+&lt;p&gt;這篇文章分成三個部分：首先介紹 Git for Windows (免 compile 的那個) 的安裝，接著是 msysGit (需要 compile 的那個) 的安裝，最後會介紹 TortoiseGit 的安裝，並以一個簡單的 git clone 作為結束。如果是一般單純想在 windows 上用 git 的人，可以只看第一跟第三部分即可，第二部分就當作參考資料吧！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://blog.crboy.net/tags/Git/"/>
+    
+      <category term="教學" scheme="http://blog.crboy.net/tags/%E6%95%99%E5%AD%B8/"/>
+    
+      <category term="筆記" scheme="http://blog.crboy.net/tags/%E7%AD%86%E8%A8%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「cannot open shared object file」的解決方案</title>
+    <link href="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object.html"/>
+    <id>http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object.html</id>
+    <published>2012-05-23T07:20:00.000Z</published>
+    <updated>2016-05-07T17:28:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>有時候執行一些指令，會碰到下面這樣的訊息：</p>
+<pre><code>error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+</code></pre><p>在這個例子中，我們的程式找不到 <code>libiconv.so.2</code> 這個 dynamic library。那麼應該怎麼解決呢？</p>
+<p>首先必須找到系統中的 <code>libiconv.so.2</code>，下面四條指令選一條作就好：</p>
+<pre><code>$ locate libiconv.so.2
+$ whereis libiconv.so.2
+$ find /usr /lib -name libiconv.so.2
+$ find / -name libiconv.so.2 2&gt;/dev/null
+</code></pre><p>這時候就可以找出函式庫位置，例如：<code>/usr/local/lib/libiconv.so</code></p>
+<a id="more"></a>
+<p>萬一沒有找出來的話，就要自行安裝了。<a href="http://www.techsww.com/tutorials/libraries/libiconv/installation/installing_libiconv_on_ubuntu_linux.php" target="_blank" rel="external">這篇文章</a>有教該如何安裝 libiconv，如果是其他函式庫的話可以自行變通。</p>
+<p>找到位置之後，應該怎麼做呢？如果我們有 root 權限的話，可以把函式庫所在路徑寫入 <code>/etc/ld.so.conf</code>，再重新產生 ld 的 cache 即可，如下：</p>
+<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf # 注意! 要用 &gt;&gt; 而非 &gt;！
+# ldconfig
+</code></pre><p>在某些系統中，<code>/etc/ld.so.conf</code> 可能會預設加上 <code>include /etc/ld.so.conf.d/*.conf</code> 這樣的敘述，那們我們也可以把路徑放在那個目錄下：</p>
+<pre><code># echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf.d/usr_local_lib.conf
+# ldconfig
+</code></pre><p>這樣一來就可以讓程式順利搜尋到需要的 library 囉！</p>
+<p><strong>BUT!! 玩 Linux 最重要的就是這個 BUT!!</strong></p>
+<p>如果我們沒有 root 權限的話該怎麼辦呢？這時候只好很可憐的自己搞定了…如果需要自行編譯 library 的話，可以照著類似的步驟做，但是 prefix (也就是安裝位置) 要設定在自己的家目錄下，例如：</p>
+<pre><code>$ ./configure --prefix=$HOME/libiconv
+</code></pre><p>但這邊假設系統中已經有 <code>/usr/local/lib/libiconv.so.2</code> 這個檔案，進行以下步驟：</p>
+<pre><code>$ echo &quot;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&quot; &gt;&gt; ~/.bashrc
+</code></pre><p>原理很簡單，就是透過設定 <code>LD_LIBRARY_PATH</code> 來讓程式找得到需要的 library 檔案。修改後需要重新登入才會生效喔！</p>
+<p>但是…基本上還是建議不要用後面這個方法啦，找你的系統管理員協助設定 <code>/etc/ld.so.conf</code> 才是好主意。這裡有篇文章：<a href="http://xahlee.org/UnixResource_dir/_/ldpath.html" target="_blank" rel="external">Why LD_LIBRARY_PATH is bad</a>，專門在討論為什麼不要隨意使用 <code>LD_LIBRARY_PATH</code>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有時候執行一些指令，會碰到下面這樣的訊息：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在這個例子中，我們的程式找不到 &lt;code&gt;libiconv.so.2&lt;/code&gt; 這個 dynamic library。那麼應該怎麼解決呢？&lt;/p&gt;
+&lt;p&gt;首先必須找到系統中的 &lt;code&gt;libiconv.so.2&lt;/code&gt;，下面四條指令選一條作就好：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ locate libiconv.so.2
+$ whereis libiconv.so.2
+$ find /usr /lib -name libiconv.so.2
+$ find / -name libiconv.so.2 2&amp;gt;/dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;這時候就可以找出函式庫位置，例如：&lt;code&gt;/usr/local/lib/libiconv.so&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="教學" scheme="http://blog.crboy.net/tags/%E6%95%99%E5%AD%B8/"/>
+    
+      <category term="Linux" scheme="http://blog.crboy.net/tags/Linux/"/>
+    
+      <category term="Trouble Shooting" scheme="http://blog.crboy.net/tags/Trouble-Shooting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH 安全性設定筆記</title>
+    <link href="http://blog.crboy.net/2012/05/ssh-security-note.html"/>
+    <id>http://blog.crboy.net/2012/05/ssh-security-note.html</id>
+    <published>2012-05-18T06:16:00.000Z</published>
+    <updated>2016-05-07T17:27:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 <code>/etc/ssh/sshd_config</code> 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。</p>
+<ul>
+<li><p>修改預設 port (可用多行開啟多個 port)</p>
+<pre><code>Port &lt;port&gt;
+</code></pre></li>
+<li><p>僅監聽特定 ip (適用於多網卡/多 IP 的情形)</p>
+<pre><code>ListenAddress 192.168.1.10
+</code></pre></li>
+<li><p>禁止 root 登入</p>
+<pre><code>PermitRootlogin no
+</code></pre><p>  管理者必須先以個人帳號登入，再 su 成 root，或利用 sudo 工作。</p>
+</li>
+<li><p>禁止使用空密碼登入</p>
+<pre><code>PermitEmptyPasswords no
+</code></pre></li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>僅允許或拒絕特定帳號或群組登入</p>
+<pre><code>AllowUsers &lt;user1&gt; &lt;user2&gt; &lt;user3&gt;
+AllowGroups &lt;group&gt;
+DenyUsers *
+DenyGroups no-ssh
+</code></pre><p>  根據實驗，對於同一帳號而言，如果同時 Allow 跟 Deny 的話，結果會是 Deny 的。</p>
+</li>
+<li><p>廢除密碼登錄，強迫使用 RSA/DSA 驗證</p>
+<pre><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
+PasswordAuthentication no
+</code></pre><p>  並確保 user 的 <code>~/.ssh</code> 權限為 <code>700</code>，同時將該 user 的 public key 加入其 <code>~/.ssh/authorized_keys</code> 中。Public key 的產生方式可搜尋 <code>ssh-keygen</code>。</p>
+</li>
+<li><p>僅允許 SSHv2</p>
+<pre><code>Protocol 2
+</code></pre></li>
+<li><p>限制特定使用者、群組、主機或位址的登入行為，這裡以限制 <code>somebody</code> 與 <code>handsomebody</code> 不可使用密碼登入為例</p>
+<pre><code>Match User somebody,handsomebody
+PasswordAuthentication no
+</code></pre><p>  但是要怎麼結束 Match block？我只找到有資料說「In sshd_config, Match blocks must be located at the end of the file.」，如果真是這樣，那就只好認了。</p>
+</li>
+<li><p>使用 TCP wrappers 限制來源 IP</p>
+<pre><code># /etc/hosts.deny
+sshd: ALL
+
+# /etc/hosts.allow
+sshd: 192.168.1 1.2.3.4 # 僅允許 192.168.1.* 與 1.2.3.4 連線
+</code></pre></li>
+<li><p>使用 iptables 限制來源 IP</p>
+<pre><code># iptables -A INPUT -p tcp -m state --state NEW --source 1.2.3.4 --dport 22 -j ACCEPT
+# iptables -A INPUT -p tcp --dport 22 -j DROP
+</code></pre><p>  設定會立即生效，但若希望重開機後還能保存，需要手動儲存 iptables 的設定。</p>
+</li>
+<li><p>時間鎖定 (這段直接引用並稍微修改<a href="http://os.51cto.com/art/200803/68174_2.htm" target="_blank" rel="external">原作者</a>的文字，有空再消化整理)</p>
+</li>
+</ul>
+<blockquote>
+<p>你可以使用不同的 iptables 參數來限制到 SSH 服務的連接，讓其在一個特定的時間範圍內可以連接，其他時間不能連接。你可以在下面的任何例子中使用 <code>/second</code>、<code>/minute</code>、<code>/hour</code> 或 <code>/day</code> 開關。<br>第一個例子，如果一個用戶輸入了錯誤的密碼，鎖定一分鐘內不允許在訪問 SSH 服務，這樣每個用戶在一分鐘內只能嘗試一次登錄</p>
+<pre><code># iptables -A INPUT -p tcp -m state --syn --state NEW --dport 22 -m limit --limit 1/minute --limit-burst 1 -j ACCEPT
+# iptables -A INPUT -p tcp -m state --syn --state NEW --dport 22 -j DROP
+</code></pre><p>第二個例子，設置 iptables 只允許主機 193.180.177.13 連接到 SSH 服務，在嘗試三次失敗登錄後，iptables 允許該主機每分鐘嘗試一次登錄</p>
+<pre><code># iptables -A INPUT -p tcp -s 193.180.177.13 -m state --syn --state NEW --dport 22 -m limit --limit 1/minute --limit-burst 1 -j ACCEPT
+# iptables -A INPUT -p tcp -s 193.180.177.13 -m state --syn --state NEW --dport 22 -j DROP
+</code></pre></blockquote>
+<ul>
+<li><p>檢查相關檔案權限，不安全則不允許登入</p>
+<pre><code>StrictModes yes
+</code></pre><p>  某些相關檔案權限設定若有錯誤時，可能造成安全性風險。如使用者的 ~/.ssh/authorized_keys 權限若為 666，可能造成其他人可以盜用帳號。</p>
+</li>
+<li><p>自訂使用者登入時顯示的 banner (話說這跟安全性有什麼關係…? 大概可以用社交方式嚇跑壞人吧…= =a)</p>
+<pre><code>Banner /etc/ssh/banner # 任意文字檔
+</code></pre></li>
+<li><p>限制 su/sudo 名單</p>
+<pre><code># vi /etc/pam.d/su
+auth       required     /lib/security/$ISA/pam_wheel.so use_uid
+
+# visudo
+%wheel  ALL = (ALL) ALL
+
+# gpasswd -a user1 wheel
+</code></pre></li>
+<li><p>限制 ssh 使用者名單</p>
+<pre><code># vi /etc/pam.d/sshd
+auth required pam_listfile.so item=user sense=allow file=/etc/ssh_users onerr=fail
+# echo USERNAME &gt;&gt; /etc/ssh_users
+</code></pre></li>
+</ul>
+<h2 id="參考文章列表"><a href="#參考文章列表" class="headerlink" title="參考文章列表"></a>參考文章列表</h2><ul>
+<li><a href="http://www.hkcode.com/linux-bsd-notes/176" target="_blank" rel="external">網絡技術日誌 - SSH 安全設定</a></li>
+<li><a href="http://www.study-area.org/tips/ssh_tips.htm" target="_blank" rel="external">SSH 的一些安全小技巧 by Netman</a> (後半段有個有趣的應用技，讓人透過 web 去暫時允許某 ip 登入 ssh，期限 5 分鐘!)</li>
+<li><a href="http://os.51cto.com/art/200803/68174.htm" target="_blank" rel="external">高级 SSH 安全技巧</a></li>
+<li><a href="http://linux.vbird.org/linux_server/0310telnetssh.php#ssh_sshdconfig" target="_blank" rel="external">鳥哥的 Linux 私房菜</a></li>
+<li><a href="http://serverfault.com/questions/238711/force-ssh-public-key-authentication-for-specific-users" target="_blank" rel="external">Force SSH public key authentication for specific users</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;修改預設 port (可用多行開啟多個 port)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Port &amp;lt;port&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;僅監聽特定 ip (適用於多網卡/多 IP 的情形)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ListenAddress 192.168.1.10
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;禁止 root 登入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PermitRootlogin no
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  管理者必須先以個人帳號登入，再 su 成 root，或利用 sudo 工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;禁止使用空密碼登入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PermitEmptyPasswords no
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="ssh" scheme="http://blog.crboy.net/tags/ssh/"/>
+    
+      <category term="security" scheme="http://blog.crboy.net/tags/security/"/>
+    
+      <category term="note" scheme="http://blog.crboy.net/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>透過 ssh 遠端存取 git repository</title>
+    <link href="http://blog.crboy.net/2012/03/remote-git-access-via-ssh.html"/>
+    <id>http://blog.crboy.net/2012/03/remote-git-access-via-ssh.html</id>
+    <published>2012-03-22T19:31:00.000Z</published>
+    <updated>2016-05-07T17:51:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>好，今天來寫個我架設「偽 - git server」的作法吧！  </p>
+<p>為什麼叫做「偽 - git server」呢？因為他不是真的跑起來一支 daemon 去負責 git 的 access，像是 gitolite 或是 gitosis 那樣。(事實上我也不知道該怎麼把那些東西架起來XD)<br>由於 git 可以透過 ssh protocol 來 access，當然要善用這點！  </p>
+<p>以下我分為單人各自使用與多人共用來講：  </p>
+<a id="more"></a>
+<h2 id="單人各自使用"><a href="#單人各自使用" class="headerlink" title="單人各自使用"></a>單人各自使用</h2><p>這算是簡單的應用了，只要你有一台工作站的 ssh 帳號，而且工作站上有 git (好吧，我承認我不曉得 minimal requirement 是什麼，也許是 git-shell 吧？) 的話，就可以這樣用，相當簡單！  </p>
+<p>首先假設遠端 server/workstation 叫做 Remote，網址是 example.com，我在這台機器上的帳號為 crboy，家目錄是 /home/crboy。相當單純而常見的配置。另外本機叫做 PC，其他相同。  </p>
+<p>那麼我們想要開始一個新專案可以這麼做：(注意主機名稱)  </p>
+<pre><code>crboy@Remote:~$ mkdir my_project.git # 建立專案 repo 的目錄
+crboy@Remote:~$ cd my_project.git # 進去該目錄
+crboy@Remote:~/my_project.git$ git init --bare # 初始化這個目錄為「純repo」(這是我自己的說法，應該是不太通用，記得 bare repository 比較好)
+Initialized empty Git repository in /home/crboy/my_project.git/
+crboy@Remote:~/my_project.git$ ls # 只是看看底下產生了什麼
+branches  config  description  HEAD  hooks  info  objects  refs
+crboy@Remote:~/my_project.git$
+</code></pre><p>回到本機上  </p>
+<pre><code>crboy@PC:~$ git clone ssh://example.com/home/crboy/my_project.git # 把剛剛產生的空 repo 給 clone 回來，由於是空的，會收到警告
+Cloning into my_project...warning: You appear to have cloned an empty repository.
+crboy@PC:~$ cd my_project
+crboy@PC:~/my_project$ vim README # 隨便寫點東西吧
+....... # 這邊就不說了，基本的 git 操作，總之你就 commit 一些東西就對了
+crboy@PC:~/my_project$ git push origin master # 第一次 push 要指定遠端主機名稱還有 branch，之後直接 git push 即可
+Counting objects: 3, done
+Writing objects: 100% (3/3), 218 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To ssh://example.com/home/crboy/my_project.git
+* [new branch]      master -&gt; master
+crboy@PC:~/my_project$ 
+</code></pre><p>去遠端主機上看看  </p>
+<pre><code>crboy@Remote:~/my_project.git$ git log # 應該會看到你的 log 唷!!
+commit cbaf3fe2ab3bb5477a8f05ff79512dd6930e6177
+Author: CrBoy &lt;email@is.hidden&gt;
+Date:   Fri Mar 23 02:41:52 2012 +0800
+
+    Initial commit
+crboy@Remote:~/my_project.git$
+</code></pre><p>成功了！  </p>
+<p>那麼，如果是已經有一個現有的 git repository，想要把他丟到遠端去呢？我是透過 git-remote 來幫忙。首先我們假設遠端已經開好一個空的 repository 了，名字跟剛剛一樣。在本機我們這麼做：  </p>
+<pre><code>crboy@PC:~$ cd existing_project
+crboy@PC:~/existing_project$ git remote add origin ssh://example.com/home/crboy/my_project.git # 加入一台遠端主機，名字為 origin
+crboy@PC:~/existing_project$ git push origin master # push 的方式跟之前一樣
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 218 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To ssh://example.com/home/crboy/my_project.git
+* [new branch]      master -&gt; master
+crboy@PC:~/existing_project$ 
+</code></pre><p>另外順便提一下，因為剛剛在測試的時候耍蠢，收到以下這個訊息：  </p>
+<pre><code>fatal: &apos;/home/crboy/my_project.git&apos; does not appear to be a git repository
+fatal: The remote end hung up unexpectedly
+</code></pre><p>如果你跟我一樣，請你不要驚慌，因為這只是你忘記把遠端 repo 的那個目錄 initialize 了…..XD  </p>
+<p>有沒有發現上面我根本沒有提到要安裝什麼東西，還是要架什麼 server？因為他真的不需要….只要本來 ssh 是會通的，git 可以用，那上面的動作就都沒問題了(吧XD)。  </p>
+<p>但是，有時候我們還是得跟別人合作 project 呀！如果有特殊考量，不能用 Github 或是 bitbucket.org 這類服務的話，又該怎麼辦呢？我這邊有個不怎麼完美的作法，但至少是堪用了….  </p>
+<h2 id="多人共用"><a href="#多人共用" class="headerlink" title="多人共用"></a>多人共用</h2><p>多人要共用就複雜多了，因為牽扯到權限問題。本來以前的我很天真的要 partner 直接 clone 我的 repo 就好，結果後來要 push 的時候才發現他沒有 writing 權限，沒辦法 push 啊啊啊啊XD 於是乎，我只好把我的 repo，裡面所有檔案的 group 都改成對方的 group，然後再把權限加上 g+w (chmod -R g+w <repo>)……..好，他現在可以 push 了。  </repo></p>
+<p>結果過沒多久，又發現出包了啊XDDDD 檢查之後才發現，他新增的一些檔案，owner 會是他，所以我沒辦法改寫，我新增的檔案， group 還是我自己，所以他還是不能 push。雖然可以一直狂修權限，但是這根本就是比水溝還髒的解法= =  </p>
+<p>於是乎，我去想辦法解決這個問題。  </p>
+<p>本來是想架 server 的，不過後來忘記在哪裡看到這個技巧，覺得很方便，又不用多開 daemon，就採用了！運作上還不錯，缺點大概是每次設定上比較麻煩，但是這可以寫支 script 來處理就是XD (根本就是抗拒接受更完整的方案)  </p>
+<p>這個技巧，說穿了很簡單。就是「建立公用帳號，並讓每個人都透過公用帳號來 push/pull」。哇靠，這樣不是很不安全嗎？ CrBoy 你這個惡魔怎麼可以介紹這種鳥方法！呃….各位先冷靜，我再說明得詳細一點。  </p>
+<p>這個方法要：  </p>
+<ul>
+<li>建立公用帳號 git #當然你可以叫他別的名字啦</li>
+<li>設定 git 的 login shell 為 git-shell</li>
+<li>在 ~git/.ssh/ 底下新增 authorized_keys</li>
+<li>把所有需要 git remote access 的人的 public key 都放進 ~git/.ssh/authorized_keys</li>
+</ul>
+<p>大概這樣吧…..如果對於 ssh-key 沒有概念的話，呃…可能要請你看看網路上的其他文章了…很簡單的，連我都會 :)</p>
+<p>因為我實在懶得重做一次了，所以請各位看倌照著上面的提示做吧！只要對 linux 跟 ssh 有點概念跟使用經驗的話，應該是沒問題的！做完之後，就可以在 git 這個帳號的家目錄底下建立 repo 了，要建幾個都可以XD。至於 clone 或是 push/pull 的方法，都跟上面單人使用的時候類似，唯一不同的是多人都可以存取同一個 repo 而且不會發生鬧鬼的問題唷！另外補充一下，連線的時候要指定 username 為 git 唷~當然 ssh 的 key 也得設定好才行！</p>
+<p>但這個方法是有缺點的，其中幾個很明顯的缺點，如：</p>
+<ul>
+<li>不能控制誰可以存取哪個 repo</li>
+<li>沒有 web 介面可以看到 repo 資訊</li>
+<li>要新增 user 需要請管理者更新 authorized_keys</li>
+<li>要新增 repo 需要請管理者協助</li>
+<li>只能走 ssh，不能走像是 http, https, 或是 git 之類的 protocol。很多人是不知道怎麼用 ssh 的….orz</li>
+</ul>
+<p>所以這個 solution 只適合用在小型團隊，很少開專案或是加減人的狀況囉！</p>
+<p>對了，抱怨一下，我實在受不了 blogger 寫技術文章真的有夠麻煩…..快崩潰了= =</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好，今天來寫個我架設「偽 - git server」的作法吧！  &lt;/p&gt;
+&lt;p&gt;為什麼叫做「偽 - git server」呢？因為他不是真的跑起來一支 daemon 去負責 git 的 access，像是 gitolite 或是 gitosis 那樣。(事實上我也不知道該怎麼把那些東西架起來XD)&lt;br&gt;由於 git 可以透過 ssh protocol 來 access，當然要善用這點！  &lt;/p&gt;
+&lt;p&gt;以下我分為單人各自使用與多人共用來講：  &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
+    
+      <category term="Git" scheme="http://blog.crboy.net/tags/Git/"/>
+    
+      <category term="教學" scheme="http://blog.crboy.net/tags/%E6%95%99%E5%AD%B8/"/>
+    
+      <category term="Linux" scheme="http://blog.crboy.net/tags/Linux/"/>
     
   </entry>
   
