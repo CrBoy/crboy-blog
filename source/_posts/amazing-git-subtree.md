@@ -55,3 +55,8 @@ $ git subtree pull -P themes/crboy-icarus theme-crboy-icarus master
 ```
 
 總結一下：用 subtree 當然是也有一些缺點的，例如子專案的東西會在母專案裡也存一份，所以會讓 git repo 變大。但這問題在現代來說不是很嚴重，整體而言我認為 subtree 比 submodule 方便得多，我會傾向使用 subtree。至於 submodule 的使用情境，目前只想到要 include 一個外部專案，而且我確定完全不會去改它的時候才比較可能使用吧。
+
+參考資料：
+- [git-subtree](https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt)
+- [Git SubTree 共編 Library](http://yutin.logdown.com/posts/188306-git-subtree-total-addendum-library)（我覺得這篇寫得滿好懂的，是我找了很多篇教學中最好懂的一篇）
+
