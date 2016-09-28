@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.crboy.net/"/>
-  <updated>2016-09-27T19:09:57.000Z</updated>
+  <updated>2016-09-28T19:01:12.000Z</updated>
   <id>http://blog.crboy.net/</id>
   
   <author>
@@ -16,11 +16,50 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>神奇的 Git Subtree</title>
+    <link href="http://blog.crboy.net/2016/09/amazing-git-subtree/"/>
+    <id>http://blog.crboy.net/2016/09/amazing-git-subtree/</id>
+    <published>2016-09-28T19:01:12.000Z</published>
+    <updated>2016-09-28T19:01:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自訂 theme，所以我 fork 了 icarus 這個 theme 來改，但需要把它放進我的大 hexo 專案中。</p>
+<p>用 submodule 的做法其實滿麻煩的，它的原理是：大專案紀錄某目錄是一個 submodule，所以大專案就不 track 該目錄的變更，而是 track 該目錄的 HEAD commit。該目錄的內容變更則交給他自己 track。也就是說，如果修改了小專案的內容，需要先去小專案裡面把修改 commit 進去後，再去大專案把小專案的新 commit id 給 commit 進去。光用講的都覺得混亂…</p>
+<p>有天發現了 git-subtree 是個可以解決類似問題的工具，但差別在於 subtree 不需要事先指定哪個目錄是子專案，只要在需要的時候處理即可。什麼是需要的時候呢？</p>
+<ol>
+<li>要把子專案切出去的時候（通常只會切一次）</li>
+<li>要把子專案在本地端的變更丟出去的時候</li>
+<li>要把一個專案放進來變成子專案的時候（通常只會放一次）</li>
+<li>要把子專案在外面的變更拉進來的時候</li>
+</ol>
+<p>除了「需要的時候」以外，子專案就像是（其實根本就是）大專案的一部分，用原有的方式去操作 git 即可，相當單純！</p>
+<p>我覺得以我找到的資料來說，<a href="http://yutin.logdown.com/posts/188306-git-subtree-total-addendum-library" target="_blank" rel="external">Git SubTree 共編 Library</a> 這篇文章是講得比較清楚易懂的，有些別的文章會舉例錯誤或不知所云….XD 不過我認為需要搭配 <a href="https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt" target="_blank" rel="external">man page</a> 服用會比較能理解。</p>
+<p>下面就以 hexo 為例，練習把原本用 git-submodule 管理的 theme（crboy-icarus）改成用 git-subtree 管理，並推到相同的 remote repository 去吧。</p>
+<p>首先把 theme 的 origin 記下來，然後刪除這個 submodule</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### 記下原有的 remote，方便後面操作（非必要）</div><div class="line">$ cat .gitmodules</div><div class="line">[submodule &quot;themes/crboy-icarus&quot;]</div><div class="line">    path = themes/crboy-icarus</div><div class="line">	url = https://github.com/CrBoy/hexo-theme-icarus</div><div class="line"></div><div class="line">### 移除 submodule 並 commit</div><div class="line">$ git submodule deinit themes/crboy-icarus</div><div class="line">$ git rm themes/crboy-icarus</div><div class="line">$ git commit</div><div class="line"></div><div class="line">### 將原有的 remote 加入，並新增為 subtree</div><div class="line">$ git remote add theme-crboy-icarus https://github.com/CrBoy/hexo-theme-icarus</div><div class="line">$ git subtree add -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>完成之後，原本的 submodule 現在已經成為上層專案的一部份了，任何修改都可以直接 commit 進上層專案就好。如果要把變更送到 remote theme-crboy-icarus 去，可以這樣做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree push -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>如果這個子專案在別地方被更新了，那可以這樣把更新拉進來：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree pull -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>總結一下：用 subtree 當然是也有一些缺點的，例如子專案的東西會在母專案裡也存一份，所以會讓 git repo 變大。但這問題在現代來說不是很嚴重，整體而言我認為 subtree 比 submodule 方便得多，我會傾向使用 subtree。至於 submodule 的使用情境，目前只想到要 include 一個外部專案，而且我確定完全不會去改它的時候才比較可能使用吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://blog.crboy.net/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CloudFlare 的 Flexible SSL</title>
     <link href="http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/"/>
     <id>http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/</id>
     <published>2016-09-27T19:09:57.000Z</published>
-    <updated>2016-09-27T19:09:57.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近認真的把 blog 放上 github pages，算是差不多初始化完成了。不過 https 在這年頭是個很重要的問題啊….因為我設定了 CNAME，所以目前的網址是 hexo.crboy.net，但是如果直接連到 <a href="https://hexo.crboy.net" target="_blank" rel="external">https://hexo.crboy.net</a> 的話，會拿到一張 github.com 自己的 ssl 憑證，這張憑證簽給了許多 domain，其中包含 *.github.io，如下圖：</p>
 <img src="/2016/09/cloudflare-flexible-ssl/github-ssl-cert.png" alt="github-ssl-cert.png" title="">
@@ -58,7 +97,7 @@
     <link href="http://blog.crboy.net/2016/09/ipinfo-io/"/>
     <id>http://blog.crboy.net/2016/09/ipinfo-io/</id>
     <published>2016-09-27T10:45:49.000Z</published>
-    <updated>2016-09-27T10:45:17.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>以前都用 orange.tw 在查 ip，雖然自己也寫了一個 ip.crboy.net，不過因為實在不想花錢養一台機器，所以就把服務給停掉了。</p>
 <p>剛剛發現 ipinfo.io 這個網站，用瀏覽器開的話相關說明也都有了。但如果直接用 <code>curl</code> 送 request 的話，就可以拿到自己的 ip 的相關資訊（包含地點、國家等）。</p>
@@ -91,7 +130,7 @@
     <link href="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/"/>
     <id>http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/</id>
     <published>2016-03-21T10:04:54.000Z</published>
-    <updated>2016-09-27T10:06:45.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>挑了一下主題，暫時就用 Icarus 這個樣式吧XD</p>
 <p>不過在 config 的時候遇到問題，怎麼改都沒效。後來找到<a href="http://wuchong.me/blog/2015/03/12/support-jacman-to-Hexo-3/" target="_blank" rel="external">這篇文章</a>，裡面寫到這段話：</p>
@@ -118,7 +157,7 @@
     <link href="http://blog.crboy.net/2016/03/move-to-hexo/"/>
     <id>http://blog.crboy.net/2016/03/move-to-hexo/</id>
     <published>2016-03-19T21:47:04.000Z</published>
-    <updated>2016-09-27T10:01:17.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天突然覺得，應該要（再）開始好好寫 blog，想了一下，覺得實在受不了 blogger 的鳥氣。<br>以前評估過 Octopress 跟 Hexo，當時覺得不能用手機發文，或是用別台電腦發文，實在滿討厭的，就暫不考慮使用。<br>不過想到我現在的狀況….連發文都懶XD<br>轉念一想，其實用手機的時候，如果想寫文字，可以先筆記下來（比方說 Evernote），等到拿到電腦再好好整理文章啊！<br>這樣也可以提高我發文的品質，而且可以好好整理文字內容。感覺這樣滿不錯的。</p>
 <p>於是我重新找了一下，發現這類工具好像還是以 Octopress 跟 Hexo 為大宗，而且 Hexo 據說比較易用，還是台灣人做的，當然要支持一下。（而且聽說 page render 的效能差很多….XD）<br>那麼，就開始學 Hexo 該怎麼用了！</p>
@@ -138,7 +177,7 @@
     <link href="http://blog.crboy.net/2013/09/balsamiq-mockups/"/>
     <id>http://blog.crboy.net/2013/09/balsamiq-mockups/</id>
     <published>2013-09-26T18:21:00.000Z</published>
-    <updated>2016-05-03T23:42:45.000Z</updated>
+    <updated>2016-09-28T17:25:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>對於一個美術白癡來說，要設計一個網站的外觀，實在有點困難。有時候要把心中構想先畫出來給人看，都覺得力不從心，所以只好直接寫一個網頁出來，調 CSS 調老半天，只為了把心中的畫面呈現給人「看看再說」。上面所說的作法，做出來的東西比較類似於 prototype，也就是已經包含了部分 CSS/JavaScript 的完整網頁，也許缺的只是真正會 work 的功能還有各種比較細節的調整而已。但萬一這樣做出來的東西不合人家(也許是主管、客戶，甚至是自己)的胃口，那花的這些時間就算沒有全部白費，也浪費掉不少了。  </p>
 <p>或許有人會說，「我寫 prototype 超快我超強！」但你再強你有人家設計師用 photoshop 隨便畫畫強嗎？雖然人家畫出來的就是一張圖，不會動也不能點，但是省時省力，又能把想表現的重點突顯出來，用來作為前期的討論跟比較相當適合！可能講成這樣還是有人鐵齒…那試想一個狀況：客戶看了你的 prototype 之後，跟你講了一堆元件說要換位置，下面這個按鈕移到上面去(立刻修改HTML)，這個選單要大一點(趕快調整 font-size, width, height，啊破版了再改一下另外那個…)，這些東西的間距要小一點，整個寬度要一樣(調 margin 調老半天)…..總而言之，對於外觀的要求，在圖片上討論常常比在程式碼中討論來得容易，所以也才有所謂的 wireframe 與 mockup 的出現。  </p>
@@ -197,7 +236,7 @@
     <link href="http://blog.crboy.net/2012/05/git-on-windows/"/>
     <id>http://blog.crboy.net/2012/05/git-on-windows/</id>
     <published>2012-05-24T16:25:00.000Z</published>
-    <updated>2016-05-03T23:26:13.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 是一套很棒的分散式版本控制系統。不過由於它一直是在 Linux 上生長的，對於在 Windows 上使用來說其實稍嫌麻煩。</p>
 <h2 id="Windows-上的各種-Git"><a href="#Windows-上的各種-Git" class="headerlink" title="Windows 上的各種 Git"></a>Windows 上的各種 Git</h2><p>在網路上搜尋通常會找到 Git for Windows 跟 msysGit 這兩個不同的名詞，我過去一直沒辦法很清楚的把他們兩者區分開來。根據 <a href="http://msysgit.github.com/" target="_blank" rel="external">msysgit 在 github 上的首頁</a> 與 <a href="http://stackoverflow.com/questions/3672272/msysgit-vs-git-for-windows" target="_blank" rel="external">StackOverflow 上的討論</a>，我目前的理解是：</p>
@@ -357,7 +396,7 @@
     <link href="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/"/>
     <id>http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/</id>
     <published>2012-05-23T07:20:00.000Z</published>
-    <updated>2016-05-07T17:28:36.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>有時候執行一些指令，會碰到下面這樣的訊息：</p>
 <pre><code>error while loading shared libraries: libiconv.so.2: cannot open shared object file: No such file or directory
@@ -414,7 +453,7 @@ $ find / -name libiconv.so.2 2&amp;gt;/dev/null
     <link href="http://blog.crboy.net/2012/05/ssh-security-note/"/>
     <id>http://blog.crboy.net/2012/05/ssh-security-note/</id>
     <published>2012-05-18T06:16:00.000Z</published>
-    <updated>2016-05-07T17:27:30.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>以下收錄可增加 ssh 安全性的各種技巧，主要的修改都在 <code>/etc/ssh/sshd_config</code> 中，同時，修改設定後別忘了重新載入設定值或重新啟動 sshd。</p>
 <ul>
@@ -546,7 +585,7 @@ auth required pam_listfile.so item=user sense=allow file=/etc/ssh_users onerr=fa
     <link href="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/"/>
     <id>http://blog.crboy.net/2012/03/remote-git-access-via-ssh/</id>
     <published>2012-03-22T19:31:00.000Z</published>
-    <updated>2016-05-07T17:51:40.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>好，今天來寫個我架設「偽 - git server」的作法吧！  </p>
 <p>為什麼叫做「偽 - git server」呢？因為他不是真的跑起來一支 daemon 去負責 git 的 access，像是 gitolite 或是 gitosis 那樣。(事實上我也不知道該怎麼把那些東西架起來XD)<br>由於 git 可以透過 ssh protocol 來 access，當然要善用這點！  </p>
@@ -637,11 +676,11 @@ fatal: The remote end hung up unexpectedly
     
       <category term="Git" scheme="http://blog.crboy.net/tags/Git/"/>
     
+      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
+    
       <category term="教學" scheme="http://blog.crboy.net/tags/%E6%95%99%E5%AD%B8/"/>
     
       <category term="Linux" scheme="http://blog.crboy.net/tags/Linux/"/>
-    
-      <category term="心得" scheme="http://blog.crboy.net/tags/%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   
@@ -650,7 +689,7 @@ fatal: The remote end hung up unexpectedly
     <link href="http://blog.crboy.net/2010/04/top-10-linux-one-liners/"/>
     <id>http://blog.crboy.net/2010/04/top-10-linux-one-liners/</id>
     <published>2010-04-05T18:10:00.000Z</published>
-    <updated>2016-09-27T10:21:20.000Z</updated>
+    <updated>2016-09-28T17:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文內容修改自 <a href="http://linuxtoy.org/archives/top-10-one-liners.html" target="_blank" rel="external">http://linuxtoy.org/archives/top-10-one-liners.html</a></p>
 <p>下面是來自 <a href="http://commandlinefu.com/" target="_blank" rel="external">Commandlinefu</a> 網站由用戶投票表決出的 10 個最酷的 Linux 單行指令。</p>

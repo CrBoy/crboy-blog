@@ -14,6 +14,8 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="CrBoy&#39;s Blog" type="application/atom+xml" />
+    
 
     
 
@@ -26,13 +28,12 @@
     <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
-    
     
     
     
 
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -44,15 +45,15 @@
             </a>
             <nav id="main-nav">
                 
-                    <a class="main-nav-link" href="/.">Home</a>
+                    <a class="main-nav-link" href="/.">首頁</a>
                 
-                    <a class="main-nav-link" href="/about">About</a>
+                    <a class="main-nav-link" href="/archives">所有文章</a>
                 
-                    <a class="main-nav-link" href="/archives">Archives</a>
+                    <a class="main-nav-link" href="/categories">分類</a>
                 
-                    <a class="main-nav-link" href="/categories">Categories</a>
+                    <a class="main-nav-link" href="/tags">標籤</a>
                 
-                    <a class="main-nav-link" href="/tags">Tags</a>
+                    <a class="main-nav-link" href="/about">關於本站</a>
                 
             </nav>
             
@@ -60,7 +61,7 @@
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.png" />
+                            <img class="avatar" src="/images/avatar.png" />
                             <i class="fa fa-caret-down"></i>
                         </a>
                     </div>
@@ -77,15 +78,15 @@
         <table class="menu outer">
             <tr>
                 
-                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                    <td><a class="main-nav-link" href="/.">首頁</a></td>
                 
-                    <td><a class="main-nav-link" href="/about">About</a></td>
+                    <td><a class="main-nav-link" href="/archives">所有文章</a></td>
                 
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
                 
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
                 
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                    <td><a class="main-nav-link" href="/about">關於本站</a></td>
                 
                 <td>
                     
@@ -104,15 +105,15 @@
 <aside id="profile">
     <div class="inner profile-inner">
         <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.png" />
-            <h2 id="name">小畢 (CrBoy)</h2>
-            <h3 id="title">高級打雜師</h3>
+            <img id="avatar" src="/images/avatar.png" />
+            <h2 id="name">CrBoy</h2>
+            <h3 id="title">資深打雜師</h3>
             <span id="location"><i class="fa fa-map-marker"></i>台南/台北</span>
-            <a id="follow" target="_blank" href="https://github.com/CrBoy">關注我</a>
+            <a id="follow" target="_blank" href="https://github.com/CrBoy/">關注我</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                10
+                11
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -125,11 +126,24 @@
             <table>
                 <tr>
                     
-                    <td><a href="https://github.com/CrBoy" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://facebook.com/CrBoy.tw" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://github.com/CrBoy" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/CrBoy.tw" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -140,9 +154,151 @@
 
             
             <section id="main">
-    <article id="post-cloudflare-flexible-ssl" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-amazing-git-subtree" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/amazing-git-subtree/">神奇的 Git Subtree</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/amazing-git-subtree/">
+            <time datetime="2016-09-28T19:01:12.000Z" itemprop="datePublished">2016-09-29</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自訂 theme，所以我 fork 了 icarus 這個 theme 來改，但需要把它放進我的大 hexo 專案中。</p>
+<p>用 submodule 的做法其實滿麻煩的，它的原理是：大專案紀錄某目錄是一個 submodule，所以大專案就不 track 該目錄的變更，而是 track 該目錄的 HEAD commit。該目錄的內容變更則交給他自己 track。也就是說，如果修改了小專案的內容，需要先去小專案裡面把修改 commit 進去後，再去大專案把小專案的新 commit id 給 commit 進去。光用講的都覺得混亂…</p>
+<p>有天發現了 git-subtree 是個可以解決類似問題的工具，但差別在於 subtree 不需要事先指定哪個目錄是子專案，只要在需要的時候處理即可。什麼是需要的時候呢？</p>
+<ol>
+<li>要把子專案切出去的時候（通常只會切一次）</li>
+<li>要把子專案在本地端的變更丟出去的時候</li>
+<li>要把一個專案放進來變成子專案的時候（通常只會放一次）</li>
+<li>要把子專案在外面的變更拉進來的時候</li>
+</ol>
+<p>除了「需要的時候」以外，子專案就像是（其實根本就是）大專案的一部分，用原有的方式去操作 git 即可，相當單純！</p>
+<p>我覺得以我找到的資料來說，<a href="http://yutin.logdown.com/posts/188306-git-subtree-total-addendum-library" target="_blank" rel="external">Git SubTree 共編 Library</a> 這篇文章是講得比較清楚易懂的，有些別的文章會舉例錯誤或不知所云….XD 不過我認為需要搭配 <a href="https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt" target="_blank" rel="external">man page</a> 服用會比較能理解。</p>
+<p>下面就以 hexo 為例，練習把原本用 git-submodule 管理的 theme（crboy-icarus）改成用 git-subtree 管理，並推到相同的 remote repository 去吧。</p>
+<p>首先把 theme 的 origin 記下來，然後刪除這個 submodule</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### 記下原有的 remote，方便後面操作（非必要）</div><div class="line">$ cat .gitmodules</div><div class="line">[submodule &quot;themes/crboy-icarus&quot;]</div><div class="line">    path = themes/crboy-icarus</div><div class="line">	url = https://github.com/CrBoy/hexo-theme-icarus</div><div class="line"></div><div class="line">### 移除 submodule 並 commit</div><div class="line">$ git submodule deinit themes/crboy-icarus</div><div class="line">$ git rm themes/crboy-icarus</div><div class="line">$ git commit</div><div class="line"></div><div class="line">### 將原有的 remote 加入，並新增為 subtree</div><div class="line">$ git remote add theme-crboy-icarus https://github.com/CrBoy/hexo-theme-icarus</div><div class="line">$ git subtree add -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>完成之後，原本的 submodule 現在已經成為上層專案的一部份了，任何修改都可以直接 commit 進上層專案就好。如果要把變更送到 remote theme-crboy-icarus 去，可以這樣做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree push -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>如果這個子專案在別地方被更新了，那可以這樣把更新拉進來：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree pull -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>總結一下：用 subtree 當然是也有一些缺點的，例如子專案的東西會在母專案裡也存一份，所以會讓 git repo 變大。但這問題在現代來說不是很嚴重，整體而言我認為 subtree 比 submodule 方便得多，我會傾向使用 subtree。至於 submodule 的使用情境，目前只想到要 include 一個外部專案，而且我確定完全不會去改它的時候才比較可能使用吧。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/09/amazing-git-subtree/" data-id="citna6xqc00014n7qk61lqekh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-cloudflare-flexible-ssl" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
         
             <header class="article-header">
@@ -153,8 +309,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/09/cloudflare-flexible-ssl/">
@@ -163,15 +320,17 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/CloudFlare/">CloudFlare</a>, <a class="tag-link" href="/tags/SSL/">SSL</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -200,7 +359,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/" data-id="citluyfae0001947qn2gvjrm2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/09/cloudflare-flexible-ssl/" data-id="citna6xqj00034n7qu3mfcpd7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -280,7 +439,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -289,8 +447,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/09/ipinfo-io/">
@@ -299,10 +458,12 @@
     </div>
 
 
-                    
-                    
-                </div>
+                        
+                        
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -331,7 +492,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citluyfam0004947q0mm1ifbn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/09/ipinfo-io/" data-id="citna6xqn00064n7q8nxaji5x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -411,7 +572,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -420,8 +580,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/03/hexo-notes-apply-icarus/">
@@ -430,15 +591,17 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Hexo/">Hexo</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -459,7 +622,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citluyfal0003947qisbo73m3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/03/hexo-notes-apply-icarus/" data-id="citna6xqt00084n7qu9c9tjw1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -539,7 +702,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -548,8 +710,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/03/move-to-hexo/">
@@ -558,10 +721,12 @@
     </div>
 
 
-                    
-                    
-                </div>
+                        
+                        
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -578,7 +743,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2016/03/move-to-hexo/" data-id="citluyfao0005947qy050dapj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2016/03/move-to-hexo/" data-id="citna6xqx00094n7qx4cu2g1s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -658,7 +823,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -667,8 +831,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2013/09/balsamiq-mockups/">
@@ -677,22 +842,24 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/網頁設計/">網頁設計</a>, <a class="tag-link" href="/tags/視覺設計/">視覺設計</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>對於一個美術白癡來說，要設計一個網站的外觀，實在有點困難。有時候要把心中構想先畫出來給人看，都覺得力不從心，所以只好直接寫一個網頁出來，調 CSS 調老半天，只為了把心中的畫面呈現給人「看看再說」。上面所說的作法，做出來的東西比較類似於 prototype，也就是已經包含了部分 CSS/JavaScript 的完整網頁，也許缺的只是真正會 work 的功能還有各種比較細節的調整而已。但萬一這樣做出來的東西不合人家(也許是主管、客戶，甚至是自己)的胃口，那花的這些時間就算沒有全部白費，也浪費掉不少了。  </p>
 <p>或許有人會說，「我寫 prototype 超快我超強！」但你再強你有人家設計師用 photoshop 隨便畫畫強嗎？雖然人家畫出來的就是一張圖，不會動也不能點，但是省時省力，又能把想表現的重點突顯出來，用來作為前期的討論跟比較相當適合！可能講成這樣還是有人鐵齒…那試想一個狀況：客戶看了你的 prototype 之後，跟你講了一堆元件說要換位置，下面這個按鈕移到上面去(立刻修改HTML)，這個選單要大一點(趕快調整 font-size, width, height，啊破版了再改一下另外那個…)，這些東西的間距要小一點，整個寬度要一樣(調 margin 調老半天)…..總而言之，對於外觀的要求，在圖片上討論常常比在程式碼中討論來得容易，所以也才有所謂的 wireframe 與 mockup 的出現。  </p></p>
             <p class="article-more-link">
-                <a href="/2013/09/balsamiq-mockups/#more">Read More</a>
+                <a href="/2013/09/balsamiq-mockups/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -703,7 +870,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citluyfb6000a947qo0dsib7w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2013/09/balsamiq-mockups/" data-id="citna6xql00054n7q1ri9i0e1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -783,7 +950,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -792,8 +958,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2012/05/git-on-windows/">
@@ -802,15 +969,17 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/教學/">教學</a>, <a class="tag-link" href="/tags/筆記/">筆記</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -824,7 +993,7 @@
 <p>註：知名專案 cygwin 也可以安裝 git 並在 command line 下使用，但對於沒在使用 cygwin 的使用者而言麻煩得多，故此處不介紹。</p>
 <p>這篇文章分成三個部分：首先介紹 Git for Windows (免 compile 的那個) 的安裝，接著是 msysGit (需要 compile 的那個) 的安裝，最後會介紹 TortoiseGit 的安裝，並以一個簡單的 git clone 作為結束。如果是一般單純想在 windows 上用 git 的人，可以只看第一跟第三部分即可，第二部分就當作參考資料吧！</p></p>
             <p class="article-more-link">
-                <a href="/2012/05/git-on-windows/#more">Read More</a>
+                <a href="/2012/05/git-on-windows/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -835,7 +1004,7 @@
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citluyfaj0002947qy681u8y6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/git-on-windows/" data-id="citna6xqs00074n7qc0ix7kms" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -915,7 +1084,6 @@
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -924,8 +1092,9 @@
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2012/05/solution-for-cannot-open-shared-object/">
@@ -934,15 +1103,17 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a>, <a class="tag-link" href="/tags/教學/">教學</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -956,7 +1127,7 @@ $ find /usr /lib -name libiconv.so.2
 $ find / -name libiconv.so.2 2&gt;/dev/null
 </code></pre><p>這時候就可以找出函式庫位置，例如：<code>/usr/local/lib/libiconv.so</code></p></p>
             <p class="article-more-link">
-                <a href="/2012/05/solution-for-cannot-open-shared-object/#more">Read More</a>
+                <a href="/2012/05/solution-for-cannot-open-shared-object/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -967,7 +1138,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citluyfay0008947qtuzm8q7n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/solution-for-cannot-open-shared-object/" data-id="citna6xqz000b4n7qd4f5b9oy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1047,7 +1218,6 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1056,8 +1226,9 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2012/05/ssh-security-note/">
@@ -1066,15 +1237,17 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/note/">note</a>, <a class="tag-link" href="/tags/security/">security</a>, <a class="tag-link" href="/tags/ssh/">ssh</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1095,7 +1268,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 </code></pre></li>
 </ul></p>
             <p class="article-more-link">
-                <a href="/2012/05/ssh-security-note/#more">Read More</a>
+                <a href="/2012/05/ssh-security-note/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1106,7 +1279,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citluyfb50009947qjncuotvg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/05/ssh-security-note/" data-id="citna6xr1000d4n7qq9x5pni6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1186,7 +1359,6 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1195,8 +1367,9 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2012/03/remote-git-access-via-ssh/">
@@ -1205,15 +1378,17 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/心得/">心得</a>, <a class="tag-link" href="/tags/教學/">教學</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1221,7 +1396,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 <p>為什麼叫做「偽 - git server」呢？因為他不是真的跑起來一支 daemon 去負責 git 的 access，像是 gitolite 或是 gitosis 那樣。(事實上我也不知道該怎麼把那些東西架起來XD)<br>由於 git 可以透過 ssh protocol 來 access，當然要善用這點！  </p>
 <p>以下我分為單人各自使用與多人共用來講：  </p></p>
             <p class="article-more-link">
-                <a href="/2012/03/remote-git-access-via-ssh/#more">Read More</a>
+                <a href="/2012/03/remote-git-access-via-ssh/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1232,7 +1407,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 </div>
 
-    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citluyfap0006947qzpq51hjd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.crboy.net/2012/03/remote-git-access-via-ssh/" data-id="citna6xqy000a4n7q2hy68uz1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1308,143 +1483,13 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 
 
-    <article id="post-top-10-linux-one-liners" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2010/04/top-10-linux-one-liners/">10 個最酷的 Linux 單行指令</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2010/04/top-10-linux-one-liners/">
-            <time datetime="2010-04-05T18:10:00.000Z" itemprop="datePublished">2010-04-06</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>本文內容修改自 <a href="http://linuxtoy.org/archives/top-10-one-liners.html" target="_blank" rel="external">http://linuxtoy.org/archives/top-10-one-liners.html</a></p>
-<p>下面是來自 <a href="http://commandlinefu.com/" target="_blank" rel="external">Commandlinefu</a> 網站由用戶投票表決出的 10 個最酷的 Linux 單行指令。</p>
-<p>1. <code>sudo !!</code><br>以 root 帳戶執行上一道指令。</p>
-<p>2. <code>python -m SimpleHTTPServer</code><br>利用 Python 建立一個簡單的 Web 伺服器，可透過 <code>http://$HOSTNAME:8000</code> 瀏覽。</p>
-<p>3. <code>:w !sudo tee %</code><br>在 vim 中無需權限儲存編輯的文件。</p>
-<p>4. <code>cd -</code><br>更改到上一次瀏覽的目錄。</p>
-<p>5. <code>^foo^bar</code><br>將上一道指令中的 foo 替換為 bar，並執行。</p>
-<p>6. <code>cp filename{,.bak}</code><br>快速備份或複製文件。</p>
-<p>7. <code>mtr google.com</code><br><code>traceroute</code> + <code>ping</code>。</p>
-<p>8. <code>!whatever:p</code><br>搜尋命令歷史，但不執行。</p>
-<p>9. <code>ssh-copy-id user@host</code><br>將 ssh keys 複製到 <code>user@host</code> 以啟用無密碼 SSH 登錄。</p>
-<p>10. <code>ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /tmp/out.mpg</code><br>把 Linux 桌面錄製為影片。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://blog.crboy.net/2010/04/top-10-linux-one-liners/" data-id="citluyfat0007947q0fdlrybc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
+    <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一頁 &raquo;</a>
+    </nav>
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -1454,12 +1499,32 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/09/amazing-git-subtree/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/amazing-git-subtree/" class="title">神奇的 Git Subtree</a></p>
+                            <p class="item-date"><time datetime="2016-09-28T19:01:12.000Z" itemprop="datePublished">2016-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/09/cloudflare-flexible-ssl/" class="thumbnail">
     
     
-        <span style="background-image:url(/2016/09/cloudflare-flexible-ssl/github-ssl-cert.png)" alt="CloudFlare 的 Flexible SSL" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1478,6 +1543,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1496,6 +1562,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1514,30 +1581,13 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/2016/03/move-to-hexo/" class="title">搬家</a></p>
                             <p class="item-date"><time datetime="2016-03-19T21:47:04.000Z" itemprop="datePublished">2016-03-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2013/09/balsamiq-mockups/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2013/09/balsamiq-mockups/1.png)" alt="好用的 mockup、wireframe 工具：Balsamiq Mockups" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2013/09/balsamiq-mockups/" class="title">好用的 mockup、wireframe 工具：Balsamiq Mockups</a></p>
-                            <p class="item-date"><time datetime="2013-09-26T18:21:00.000Z" itemprop="datePublished">2013-09-27</time></p>
                         </div>
                     </li>
                 
@@ -1552,7 +1602,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">歸檔</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1561,7 +1611,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CloudFlare/">CloudFlare</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CloudFlare/">CloudFlare</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1570,7 +1620,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
     <div class="widget-wrap">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
+            <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
         </div>
     </div>
 
@@ -1591,7 +1641,7 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -1605,8 +1655,6 @@ $ find / -name libiconv.so.2 2&gt;/dev/null
 </footer>
         
 
-    
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
 
 

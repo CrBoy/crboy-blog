@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>神奇的 Git Subtree | CrBoy&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神奇的 Git Subtree">
+<meta property="og:url" content="http://blog.crboy.net/2016/09/amazing-git-subtree/index.html">
+<meta property="og:site_name" content="CrBoy's Blog">
+<meta property="og:description" content="一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自">
+<meta property="og:updated_time" content="2016-09-28T19:01:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="神奇的 Git Subtree">
+<meta name="twitter:description" content="一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="CrBoy&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+    
+    
+    
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">CrBoy&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首頁</a>
+                
+                    <a class="main-nav-link" href="/archives">所有文章</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於本站</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://blog.crboy.net"></form>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">所有文章</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於本站</a></td>
+                
+                <td>
+                    
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜尋"><input type="hidden" name="sitesearch" value="http://blog.crboy.net"></form>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/avatar.png" />
+            <h2 id="name">CrBoy</h2>
+            <h3 id="title">資深打雜師</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>台南/台北</span>
+            <a id="follow" target="_blank" href="https://github.com/CrBoy/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                11
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                15
+                <span>標籤</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/CrBoy" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://facebook.com/CrBoy.tw" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-amazing-git-subtree" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            神奇的 Git Subtree
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/amazing-git-subtree/">
+            <time datetime="2016-09-28T19:01:12.000Z" itemprop="datePublished">2016-09-29</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自訂 theme，所以我 fork 了 icarus 這個 theme 來改，但需要把它放進我的大 hexo 專案中。</p>
+<p>用 submodule 的做法其實滿麻煩的，它的原理是：大專案紀錄某目錄是一個 submodule，所以大專案就不 track 該目錄的變更，而是 track 該目錄的 HEAD commit。該目錄的內容變更則交給他自己 track。也就是說，如果修改了小專案的內容，需要先去小專案裡面把修改 commit 進去後，再去大專案把小專案的新 commit id 給 commit 進去。光用講的都覺得混亂…</p>
+<p>有天發現了 git-subtree 是個可以解決類似問題的工具，但差別在於 subtree 不需要事先指定哪個目錄是子專案，只要在需要的時候處理即可。什麼是需要的時候呢？</p>
+<ol>
+<li>要把子專案切出去的時候（通常只會切一次）</li>
+<li>要把子專案在本地端的變更丟出去的時候</li>
+<li>要把一個專案放進來變成子專案的時候（通常只會放一次）</li>
+<li>要把子專案在外面的變更拉進來的時候</li>
+</ol>
+<p>除了「需要的時候」以外，子專案就像是（其實根本就是）大專案的一部分，用原有的方式去操作 git 即可，相當單純！</p>
+<p>我覺得以我找到的資料來說，<a href="http://yutin.logdown.com/posts/188306-git-subtree-total-addendum-library" target="_blank" rel="external">Git SubTree 共編 Library</a> 這篇文章是講得比較清楚易懂的，有些別的文章會舉例錯誤或不知所云….XD 不過我認為需要搭配 <a href="https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt" target="_blank" rel="external">man page</a> 服用會比較能理解。</p>
+<p>下面就以 hexo 為例，練習把原本用 git-submodule 管理的 theme（crboy-icarus）改成用 git-subtree 管理，並推到相同的 remote repository 去吧。</p>
+<p>首先把 theme 的 origin 記下來，然後刪除這個 submodule</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### 記下原有的 remote，方便後面操作（非必要）</div><div class="line">$ cat .gitmodules</div><div class="line">[submodule &quot;themes/crboy-icarus&quot;]</div><div class="line">    path = themes/crboy-icarus</div><div class="line">	url = https://github.com/CrBoy/hexo-theme-icarus</div><div class="line"></div><div class="line">### 移除 submodule 並 commit</div><div class="line">$ git submodule deinit themes/crboy-icarus</div><div class="line">$ git rm themes/crboy-icarus</div><div class="line">$ git commit</div><div class="line"></div><div class="line">### 將原有的 remote 加入，並新增為 subtree</div><div class="line">$ git remote add theme-crboy-icarus https://github.com/CrBoy/hexo-theme-icarus</div><div class="line">$ git subtree add -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>完成之後，原本的 submodule 現在已經成為上層專案的一部份了，任何修改都可以直接 commit 進上層專案就好。如果要把變更送到 remote theme-crboy-icarus 去，可以這樣做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree push -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>如果這個子專案在別地方被更新了，那可以這樣把更新拉進來：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree pull -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
+<p>總結一下：用 subtree 當然是也有一些缺點的，例如子專案的東西會在母專案裡也存一份，所以會讓 git repo 變大。但這問題在現代來說不是很嚴重，整體而言我認為 subtree 比 submodule 方便得多，我會傾向使用 subtree。至於 submodule 的使用情境，目前只想到要 include 一個外部專案，而且我確定完全不會去改它的時候才比較可能使用吧。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.crboy.net/2016/09/amazing-git-subtree/" data-id="citna6xqc00014n7qk61lqekh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/09/cloudflare-flexible-ssl/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">CloudFlare 的 Flexible SSL</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/amazing-git-subtree/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/amazing-git-subtree/" class="title">神奇的 Git Subtree</a></p>
+                            <p class="item-date"><time datetime="2016-09-28T19:01:12.000Z" itemprop="datePublished">2016-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/cloudflare-flexible-ssl/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/cloudflare-flexible-ssl/" class="title">CloudFlare 的 Flexible SSL</a></p>
+                            <p class="item-date"><time datetime="2016-09-27T19:09:57.000Z" itemprop="datePublished">2016-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/ipinfo-io/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/ipinfo-io/" class="title">發現一個滿方便的 ip 資訊查詢：ipinfo.io</a></p>
+                            <p class="item-date"><time datetime="2016-09-27T10:45:49.000Z" itemprop="datePublished">2016-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/03/hexo-notes-apply-icarus/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/03/hexo-notes-apply-icarus/" class="title">Hexo 學習筆記 - 套用 Icarus 佈景</a></p>
+                            <p class="item-date"><time datetime="2016-03-21T10:04:54.000Z" itemprop="datePublished">2016-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/03/move-to-hexo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/03/move-to-hexo/" class="title">搬家</a></p>
+                            <p class="item-date"><time datetime="2016-03-19T21:47:04.000Z" itemprop="datePublished">2016-03-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">歸檔</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">四月 2010</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CloudFlare/">CloudFlare</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trouble-Shooting/">Trouble Shooting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心得/">心得</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教學/">教學</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筆記/">筆記</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/網頁設計/">網頁設計</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/視覺設計/">視覺設計</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Trouble-Shooting/" style="font-size: 10px;">Trouble Shooting</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/心得/" style="font-size: 15px;">心得</a> <a href="/tags/教學/" style="font-size: 20px;">教學</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a> <a href="/tags/網頁設計/" style="font-size: 10px;">網頁設計</a> <a href="/tags/視覺設計/" style="font-size: 10px;">視覺設計</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 CrBoy<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
