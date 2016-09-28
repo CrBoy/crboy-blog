@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.crboy.net/"/>
-  <updated>2016-09-28T19:01:12.000Z</updated>
+  <updated>2016-09-28T19:50:24.000Z</updated>
   <id>http://blog.crboy.net/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.crboy.net/2016/09/amazing-git-subtree/"/>
     <id>http://blog.crboy.net/2016/09/amazing-git-subtree/</id>
     <published>2016-09-28T19:01:12.000Z</published>
-    <updated>2016-09-28T19:01:12.000Z</updated>
+    <updated>2016-09-28T19:50:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>一直以來只知道 git 可以透過 git-submodule 管理巢狀 git 專案。也就是一個大專案中有小專案，而這兩個專案要分別用 git 做版本控制的狀況。這會發生在專案有可以抽出來跟其他專案共用的部分，或是專案需要引入一個外部現有的 git 專案的時候。舉例來說，我的 vimrc 裡面有 snippets，這個 snippets 是值得被另外拉出來成為一個專案的。又或是像 hexo，我要自訂 theme，所以我 fork 了 icarus 這個 theme 來改，但需要把它放進我的大 hexo 專案中。</p>
 <p>用 submodule 的做法其實滿麻煩的，它的原理是：大專案紀錄某目錄是一個 submodule，所以大專案就不 track 該目錄的變更，而是 track 該目錄的 HEAD commit。該目錄的內容變更則交給他自己 track。也就是說，如果修改了小專案的內容，需要先去小專案裡面把修改 commit 進去後，再去大專案把小專案的新 commit id 給 commit 進去。光用講的都覺得混亂…</p>
@@ -41,6 +41,11 @@
 <p>如果這個子專案在別地方被更新了，那可以這樣把更新拉進來：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git subtree pull -P themes/crboy-icarus theme-crboy-icarus master</div></pre></td></tr></table></figure>
 <p>總結一下：用 subtree 當然是也有一些缺點的，例如子專案的東西會在母專案裡也存一份，所以會讓 git repo 變大。但這問題在現代來說不是很嚴重，整體而言我認為 subtree 比 submodule 方便得多，我會傾向使用 subtree。至於 submodule 的使用情境，目前只想到要 include 一個外部專案，而且我確定完全不會去改它的時候才比較可能使用吧。</p>
+<p>參考資料：</p>
+<ul>
+<li><a href="https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt" target="_blank" rel="external">git-subtree</a></li>
+<li><a href="http://yutin.logdown.com/posts/188306-git-subtree-total-addendum-library" target="_blank" rel="external">Git SubTree 共編 Library</a>（我覺得這篇寫得滿好懂的，是我找了很多篇教學中最好懂的一篇）</li>
+</ul>
 ]]></content>
     
     <summary type="html">
